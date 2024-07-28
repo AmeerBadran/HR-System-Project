@@ -1,10 +1,10 @@
-import Test from "./pages/Test"
+import AppRouter from "./router/routers"
 
 function App() {
 
   return (
     <div >
-      <Test/>
+      <AppRouter />
     </div>
   )
 }

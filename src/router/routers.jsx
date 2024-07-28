@@ -3,30 +3,27 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import Dashboard from "../pages/Dashboard";
+import Profile from "../pages/Profile";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <div>
-        home
-      </div>
+      <Dashboard />
     ),
   },
   {
-    path: "about",
-    element: (
-      <div>
-      about
-      </div>
-      )
+    path: "profile",
+    element:
+      <Profile />
   },
   {
-    path: "contact",
+    path: '*',
     element: <div>
-    contact
-    </div>,
-  },
+      Not Found
+    </div>
+  }
 ]);
 
 export default function AppRouter() {
