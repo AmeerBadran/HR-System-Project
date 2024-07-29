@@ -1,10 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body{
+html {
+  padding: 0 !important;
+  overflow-y: scroll !important;
+}
+
+body {
   margin: 0;
   padding: 0;
   font-size: 1rem;
-  font-family: "Rubik", sans-serif;
+}
+
+.w-calc-100-244 {
+  width: calc(100% - 244px);
+}
+
+.w-calc-100-70 {
+  width: calc(100% - 70px);
+}
+
+.active {
+  border-left: 2px solid rgb(68, 127, 255);
+  background-color: #0F1015;
+}
+
+.active p {
+  color: white;
+}
+
+@media only screen and (max-width: 1024px) {
+  .w-calc-100-70 {
+    width: 100% !important;
+  }
+
+  .w-calc-100-244 {
+    width: 100% !important;
+  }
 }
