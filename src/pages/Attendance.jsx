@@ -1,14 +1,14 @@
 import RootLayout from "../components/HOC/RootLayout";
 import PagesTitle from "../components/molecule/PagesTitle";
-
-function Profile() {
+function Attendance() {
   return (
-    <div className="w-full ">
-      <PagesTitle pageTitle={'Profile'}/>
+    <div className="w-full">
+      <PagesTitle pageTitle={'Attendance'}/>
     </div>
   )
 }
 
-const WrappedFooter = RootLayout(Profile);
+const WrappedFooter = RootLayout(Attendance);
 
 export default WrappedFooter;
+

@@ -1,12 +1,15 @@
 import RootLayout from "../components/HOC/RootLayout";
+import PagesTitle from "../components/molecule/PagesTitle";
 
 function Dashboard() {
   return (
-    <h1 className="text-white">Dashboard</h1>
-    )
-  }
-  
-  const WrappedFooter = RootLayout(Dashboard);
-  
-  export default WrappedFooter;
+    <div className="w-full">
+      <PagesTitle pageTitle={'Dashboard'}/>
+    </div>
+  )
+}
+
+const WrappedFooter = RootLayout(Dashboard);
+
+export default WrappedFooter;
 
