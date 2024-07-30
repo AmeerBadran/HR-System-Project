@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import profileImage from "../../assets/images/vaiolet.png";
-import SidebarLink from './SidebarLink'
-import sidebarItems from '../../contents/sidebarItems';
+import SidebarLink from '../atoms/SidebarLink'
+import sidebarItems from '../../constants/sidebarItems';
 import { useEffect } from 'react';
 export default function Sidebar({ sidebarSize, isHalfScreen, setSidebarSize }) {
   const changeSize = true;

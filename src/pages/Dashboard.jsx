@@ -1,9 +1,9 @@
 import RootLayout from "../components/HOC/RootLayout";
 import PagesTitle from "../components/molecule/PagesTitle";
-import dashboardCardsData from "../contents/dashboardCardsData";
-import DashboardCard from "../components/organism/DashboardCard";
+import dashboardCardsData from "../constants/dashboardCardsData";
+import DashboardCard from "../components/molecule/DashboardCard";
 import DashboardChart from "../components/organism/DashboardChart";
-import TransactionItem from "../components/organism/TransactionItem";
+import TransactionItem from "../components/atoms/TransactionItem";
 import DashboardProjectsTable from "../components/organism/DashboardProjectsTable";
 
 function Dashboard() {

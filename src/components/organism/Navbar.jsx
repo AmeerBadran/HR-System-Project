@@ -7,9 +7,9 @@ import { TbLogout } from "react-icons/tb";
 import { CgProfile } from "react-icons/cg";
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { Link } from "react-router-dom";
-import { images, messages, notifications } from '../../contents/navbarData';
-import MessageItem from './MessageItem';
-import NotificationItem from './NotificationItem';
+import { images, messages, notifications } from '../../constants/navbarData';
+import MessageItem from '../atoms/MessageItem';
+import NotificationItem from '../atoms/NotificationItem';
 
 export default function Navbar({ sidebarSize, setSidebarSize, isSmallScreen, isHalfScreen }) {
   const changeSize = () => {

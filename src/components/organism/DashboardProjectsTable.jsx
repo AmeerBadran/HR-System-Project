@@ -1,5 +1,5 @@
-import { projectData } from "../../contents/dashboardProjectTableData";
-import DashboardProjectTableRow from "./DashboardProjectTableRow";
+import { projectData } from "../../constants/dashboardProjectTableData";
+import DashboardProjectTableRow from "../molecule/DashboardProjectTableRow";
 
 
 const DashboardProjectsTable = () => {
