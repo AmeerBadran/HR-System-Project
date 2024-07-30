@@ -13,6 +13,7 @@ import Payroll from "../pages/Payroll";
 import Contracts from "../pages/Contracts";
 import Projects from "../pages/Projects";
 import Invoices from "../pages/Invoices";
+import PageNotFound from "../pages/PageNotFound";
 
 const router = createBrowserRouter([
   {
@@ -72,9 +73,7 @@ const router = createBrowserRouter([
   },
   {
     path: '*',
-    element: <div>
-      Not Found
-    </div>
+    element: <PageNotFound />
   }
 ]);
 
