@@ -1,4 +1,3 @@
-// Navbar.js
 import PropTypes from 'prop-types';
 import { TfiMenu } from "react-icons/tfi";
 import { MdEmail } from "react-icons/md";
@@ -8,9 +7,9 @@ import { TbLogout } from "react-icons/tb";
 import { CgProfile } from "react-icons/cg";
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { Link } from "react-router-dom";
-import { images, messages, notifications } from '../../contents/navbarData';
-import MessageItem from './MessageItem';
-import NotificationItem from './NotificationItem';
+import { images, messages, notifications } from '../../constants/navbarData';
+import MessageItem from '../atoms/MessageItem';
+import NotificationItem from '../atoms/NotificationItem';
 
 export default function Navbar({ sidebarSize, setSidebarSize, isSmallScreen, isHalfScreen }) {
   const changeSize = () => {
@@ -18,7 +17,7 @@ export default function Navbar({ sidebarSize, setSidebarSize, isSmallScreen, isH
   };
 
   return (
-    <nav className={`bg-[#191c24] h-[70px] flex items-center justify-between fixed shadow-lg shadow-[#22222277] pl-[16px] ${sidebarSize === 'big' ? 'w-calc-100-244' : sidebarSize === 'small' ? 'w-calc-100-70' : ''} transition-all ease-in-out duration-200`}>
+    <nav className={`bg-[#191c24] z-10 h-[70px] flex items-center justify-between fixed shadow-lg shadow-[#22222277] pl-[16px] ${sidebarSize === 'big' ? 'w-calc-100-244' : sidebarSize === 'small' ? 'w-calc-100-70' : ''} transition-all ease-in-out duration-200`}>
       <div className="flex md:w-[100%] w-8">
         {isHalfScreen &&
           <h1 className={`mr-3 text-gray-100 font-bold px-1 py-1 tracking-wide text-2xl`}>
