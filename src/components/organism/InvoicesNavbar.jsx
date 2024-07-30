@@ -1,23 +1,23 @@
 import { useState } from "react";
 
 export default function InvoicesNavbar() {
-  const [activeButtonIndex, setActiveButtonIndex] = useState(null);
+  const [activeButtonIndex, setActiveButtonIndex] = useState(()=>null);
 
   const handleClick = (index) => {
     setActiveButtonIndex(index);
   };
-
+  
   return (
-    <div className="text-white flex w-auto gap-[760px] border-b-2 pb-2 items-center">
-      <h1 className="text-2xl">Invoices</h1>
-      <ul className="flex  border-2 border-sky-400 rounded w-[24rem] justify-between">
+    <div className="text-white flex w-auto gap-[760px]  items-center">
+      
+      <ul className="flex border border-[#FFFFFF55]  rounded-full text-white text-sm font-medium   w-[24rem] justify-between">
         <li>
           <button
             onClick={() => handleClick(0)}
-            className={`px-4 py-2  ${
+            className={`px-5 py-4  ${
               activeButtonIndex === 0
-                ? "bg-[#4b3176] text-white border-r-2 border-r-white"
-                : "bg-black text-white"
+                ? "bg-[#FFFFFF55] text-white border-r-2 border-r-white rounded-full"
+                : "border-[#FFFFFF55] text-sm font-medium hover:bg-white hover:text-black transition-colors duration-200 rounded-full"
             }`}
           >
             Invoice List
@@ -26,10 +26,10 @@ export default function InvoicesNavbar() {
         <li>
           <button
             onClick={() => handleClick(1)}
-            className={`px-5 py-2  ${
+            className={`px-6 py-4  ${
               activeButtonIndex === 1
-                ? "bg-[#4b3176] text-white border-x-2 border-x-white"
-                : "bg-black text-white"
+                ? "bg-[#FFFFFF55] text-white  rounded-full border-x-2 border-x-white"
+                : "border-[#FFFFFF55] text-sm font-medium hover:bg-white hover:text-black transition-colors duration-200 rounded-full"
             }`}
           >
             Simple Invoice
@@ -38,10 +38,10 @@ export default function InvoicesNavbar() {
         <li>
           <button
             onClick={() => handleClick(2)}
-            className={`px-4 py-2 ${
+            className={`px-5 py-4 ${
               activeButtonIndex === 2
-                ? "bg-[#4b3176] text-white border-l-2 border-l-white"
-                : "bg-black text-white"
+                ? "bg-[#FFFFFF55] text-white rounded-full border-l-2 border-l-white"
+                : "border-[#FFFFFF55] text-sm font-medium hover:bg-white hover:text-black transition-colors duration-200 rounded-full"
             }`}
           >
             Email Invoice

@@ -1,10 +1,10 @@
 import RootLayout from "../components/HOC/RootLayout";
-//import PagesTitle from "../components/molecule/PagesTitle";
-import InvoicesNavbar from "../components/organism/InvoicesNavbar";
+import PagesTitle from "../components/molecule/PagesTitle";
+
 function Invoices() {
   return (
     <div className="w-full">
-      <InvoicesNavbar/>
+      <PagesTitle pageTitle={'Invoices'}/>
     </div>
   )
 }
