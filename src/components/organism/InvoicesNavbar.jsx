@@ -11,15 +11,15 @@ export default function InvoicesNavbar({activeButtonIndex,setActiveButtonIndex})
   
   return (
     
-    <nav className="text-white flex w-auto gap-[760px]  items-center">
+    <nav className="text-white flex w-auto items-center">
       
-      <ul className="flex border border-[#FFFFFF55]  rounded text-white text-sm font-medium   w-[24rem] justify-between">
+      <ul className="flex border border-[#FFFFFF]  rounded text-white text-sm font-medium  justify-between">
         <li>
           <button
             onClick={() => handleClick(0)}
-            className={`px-5 py-4  ${
+            className={` p-4 ${
               activeButtonIndex === 0
-                ? "bg-[#FFFFFF55] text-white border-r-2 border-r-white "
+                ? "bg-[#FFFFFF55] text-white  border-white rounded-l-sm "
                 : "border-[#FFFFFF55] text-sm font-medium hover:bg-white hover:text-black transition-colors duration-200 rounded"
             }`}
           >
@@ -29,9 +29,9 @@ export default function InvoicesNavbar({activeButtonIndex,setActiveButtonIndex})
         <li>
           <button
             onClick={() => handleClick(1)}
-            className={`px-[1.61rem] py-4  ${
+            className={`p-4  ${
               activeButtonIndex === 1
-                ? "bg-[#FFFFFF55] text-white border-x-2 border-x-white"
+                ? "bg-[#FFFFFF55] text-white "
                 : "border-[#FFFFFF55] text-sm font-medium hover:bg-white hover:text-black transition-colors duration-200 rounded"
             }`}
           >
@@ -41,9 +41,9 @@ export default function InvoicesNavbar({activeButtonIndex,setActiveButtonIndex})
         <li>
           <button
             onClick={() => handleClick(2)}
-            className={`px-5 py-4 ${
+            className={`p-4 ${
               activeButtonIndex === 2
-                ? "bg-[#FFFFFF55] text-white border-l-2 border-l-white"
+                ? "bg-[#FFFFFF55] text-white rounded-r-sm"
                 : "border-[#FFFFFF55] text-sm font-medium hover:bg-white hover:text-black transition-colors duration-200 rounded"
             }`}
           >
