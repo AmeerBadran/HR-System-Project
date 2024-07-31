@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
 import profileImage from "../../assets/images/vaiolet.png";
-import SidebarLink from './SidebarLink'
-import sidebarItems from '../../contents/sidebarItems';
+import SidebarLink from '../atoms/SidebarLink'
+import sidebarItems from '../../constants/sidebarItems';
 import { useEffect } from 'react';
 export default function Sidebar({ sidebarSize, isHalfScreen, setSidebarSize }) {
-  var changeSize = true;
+  const changeSize = true;
   useEffect(() => {
     if (changeSize === isHalfScreen) {
       setSidebarSize('small')
     }
-  }, [isHalfScreen,setSidebarSize,changeSize]);
+  }, [isHalfScreen, setSidebarSize, changeSize]);
   return (
     <div className={`flex flex-col h-[100vh] bg-[#191c24] fixed bottom-0 top-0 lg:left-0 text-white ${!isHalfScreen && sidebarSize === 'big' ? 'w-[244px] left-[-244px]' : isHalfScreen && sidebarSize === 'big' ? 'w-[244px] ' : isHalfScreen && sidebarSize === 'small' ? 'w-[70px] ml-[-70px]' : !isHalfScreen && sidebarSize === 'small' ? 'w-[70px]' : 'w-[244px]'} transition-all ease-in-out duration-200`}>
       {!isHalfScreen &&

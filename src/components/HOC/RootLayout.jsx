@@ -4,13 +4,17 @@ import Sidebar from "../organism/Sidebar";
 
 export default function RootLayout(Component) {
   return function WrappedComponent(props) {
-    const [sidebarSize, setSidebarSize] = useState('big');
+    const [sidebarSize, setSidebarSize] = useState(() => {
+      return localStorage.getItem('sidebarSize') || 'big';
+    });
+
     const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 610);
     const [isHalfScreen, setIsHalfScreen] = useState(window.innerWidth < 1024);
+
     useEffect(() => {
       const handleResize = () => {
         setIsSmallScreen(window.innerWidth < 610);
-        setIsHalfScreen(window.innerWidth < 1024)
+        setIsHalfScreen(window.innerWidth < 1024);
       };
       window.addEventListener('resize', handleResize);
 
@@ -19,7 +23,12 @@ export default function RootLayout(Component) {
       return () => {
         window.removeEventListener('resize', handleResize);
       };
-    }, [isSmallScreen, isHalfScreen]);
+    }, []);
+
+    useEffect(() => {
+      localStorage.setItem('sidebarSize', sidebarSize);
+    }, [sidebarSize]);
+
     return (
       <div className='flex'>
         <Sidebar sidebarSize={sidebarSize} setSidebarSize={setSidebarSize} isHalfScreen={isHalfScreen} />
