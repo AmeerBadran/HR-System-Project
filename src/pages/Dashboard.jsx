@@ -40,7 +40,7 @@ function Dashboard() {
           <div className="text-white p-4 text-xl font-medium mb-5 border-b-2 border-gray-400">
             <h5>Active Projects</h5>
           </div>
-          <DashboardProjectsTable />
+          <DashboardProjectsTable tableType={'projects'} />
         </div>
       </div>
     </div>
