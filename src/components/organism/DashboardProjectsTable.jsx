@@ -1,10 +1,15 @@
 import PropTypes from 'prop-types';
 import { projectData } from "../../constants/dashboardProjectTableData";
+import { invoiceListData } from "../../constants/invoicesListData";
 import DashboardProjectTableRow from "../molecule/DashboardProjectTableRow";
 import AttendanceInRow from '../molecule/AttendanceInRow';
+import InvoiceListTableRow from '../molecule/InvoicesListTableRow';
 
-const projects = ['Project Name', 'Hours', 'Priority', 'Progress'];
+const projects = ['Project Name', 'Hours', 'Priority', 'Progress']
+const invoices = ["Employee name ", "Employee Adress", "Per hour payment", "Condition", " Options"]
 const attendance = ['id', 'Employee Name', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+
+
 
 const fackData = [
   {
@@ -120,7 +125,10 @@ const DashboardProjectsTable = ({ tableType, day }) => {
     column = projects;
   } else if (tableType === 'attendance in' || tableType === 'attendance out') {
     column = attendance;
+  } else if (tableType === 'invoices') {
+    column = invoices;
   }
+  
   return (
     <table className="table-container sec-table-div w-full border-b border-gray-600 text-white">
       <thead>
@@ -136,6 +144,9 @@ const DashboardProjectsTable = ({ tableType, day }) => {
         {tableType === 'projects' && projectData.map((project, index) => (
           <DashboardProjectTableRow key={index} {...project} />
         ))}
+        {tableType === 'invoices' && invoiceListData.map((invoices, index) => (
+          <InvoiceListTableRow key={index} {...invoices} />
+        ))}
         {(tableType === 'attendance in' || tableType === 'attendance out') && fackData.map((empData, index) => (
           <AttendanceInRow
             key={index}
@@ -146,8 +157,6 @@ const DashboardProjectsTable = ({ tableType, day }) => {
             checkInOut={tableType}
           />
         ))}
-
-
       </tbody>
     </table>
   );
@@ -157,5 +166,4 @@ DashboardProjectsTable.propTypes = {
   tableType: PropTypes.string.isRequired,
   day: PropTypes.string.isRequired,
 };
-
 export default DashboardProjectsTable;
