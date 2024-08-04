@@ -8,7 +8,7 @@ function Invoices() {
   return (
     <div className="w-full">
       <PagesTitle pageTitle={'Invoices'} activeButtonIndex={activeButtonIndex} setActiveButtonIndex={setActiveButtonIndex}/>
-      <div>
+      <div className="mt-6">
           <InvoicesPages activeButtonIndex={activeButtonIndex}/>
       </div>
       
