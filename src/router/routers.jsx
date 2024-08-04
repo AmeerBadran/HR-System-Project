@@ -29,7 +29,7 @@ const router = createBrowserRouter([
   {
     path: "employees",
     element: (
-      <Employees/>
+      <Employees />
     ),
   },
   {

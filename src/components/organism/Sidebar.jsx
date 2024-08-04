@@ -11,7 +11,7 @@ export default function Sidebar({ sidebarSize, isHalfScreen, setSidebarSize }) {
     }
   }, [isHalfScreen, setSidebarSize, changeSize]);
   return (
-    <div className={`flex flex-col h-[100vh] bg-[#191c24] fixed bottom-0 top-0 lg:left-0 text-white ${!isHalfScreen && sidebarSize === 'big' ? 'w-[244px] left-[-244px]' : isHalfScreen && sidebarSize === 'big' ? 'w-[244px] ' : isHalfScreen && sidebarSize === 'small' ? 'w-[70px] ml-[-70px]' : !isHalfScreen && sidebarSize === 'small' ? 'w-[70px]' : 'w-[244px]'} transition-all ease-in-out duration-200`}>
+    <div className={`flex flex-col h-[100vh] bg-[#191c24] z-10 fixed bottom-0 top-0 lg:left-0 text-white ${!isHalfScreen && sidebarSize === 'big' ? 'w-[244px] left-[-244px]' : isHalfScreen && sidebarSize === 'big' ? 'w-[244px] ' : isHalfScreen && sidebarSize === 'small' ? 'w-[70px] ml-[-70px]' : !isHalfScreen && sidebarSize === 'small' ? 'w-[70px]' : 'w-[244px]'} transition-all ease-in-out duration-200`}>
       {!isHalfScreen &&
         <h1 className={`mt-4 text-gray-100 font-semibold text-3xl ${sidebarSize === 'big' ? 'ml-6 py-1 tracking-wider ' : sidebarSize === 'small' ? 'ml-4 tracking-widest' : ''}`}>
           {sidebarSize === 'big' ? 'HR System ' : sidebarSize === 'small' ? 'HR' : ''}
