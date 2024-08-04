@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-
+import Searchbar from "../atoms/Searchbar";
 import InvoiceListTable from "./InvoicesListTable";
 
 function InvoicesPages({ activeButtonIndex }) {
@@ -12,7 +12,7 @@ function InvoicesPages({ activeButtonIndex }) {
           
           <div className="bg-[#191c24] px-6 pt-4 rounded-[4px] col-span-2 w-full h-[520px]">
           <div className="text-white p-4 text-xl font-medium mb-5 border-b-2 border-gray-400">
-            <h5>Invoice list</h5>
+            <h5 className="flex items-center justify-between">Invoice list <Searchbar/> </h5>
           </div>
           <InvoiceListTable/>
         </div>

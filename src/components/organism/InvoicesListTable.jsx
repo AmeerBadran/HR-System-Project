@@ -5,7 +5,7 @@ import { invoiceListData } from "../../constants/invoicesListData";
 import InvoiceListTableRow from "../molecule/InvoicesListTableRow";
 
  
-const invoices = ["Employee name ", "Employee Adress","Per hour payment", "Options" ]
+const invoices = ["Employee name ", "Employee Adress","Per hour payment", "Condition", " Options" ]
 const InvoiceListTable = () => {
     
   
