@@ -1,13 +1,21 @@
+
 import { projectData } from "../../constants/dashboardProjectTableData";
+
 import DashboardProjectTableRow from "../molecule/DashboardProjectTableRow";
 
-
+ const project = ['Project Name', 'Hours', 'Priority', 'Progress']
+  
 const DashboardProjectsTable = () => {
+  
+  
+  
+   
+  
   return (
     <table className="table-container sec-table-div w-full border-b border-gray-600 text-white">
       <thead>
         <tr>
-          {['Project Name', 'Hours', 'Priority', 'Progress'].map((header, index) => (
+          {project.map((header, index) => (
             <th key={index} className="border-b border-gray-600 p-3 text-[#637381] text-left">
               {header}
             </th>
@@ -22,5 +30,8 @@ const DashboardProjectsTable = () => {
     </table>
   );
 };
+
+
+
 
 export default DashboardProjectsTable;

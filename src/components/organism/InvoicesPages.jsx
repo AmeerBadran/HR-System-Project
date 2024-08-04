@@ -1,13 +1,21 @@
 import PropTypes from "prop-types";
-//import {handleClick } from './InvoicesNavbar'
+
+import InvoiceListTable from "./InvoicesListTable";
+
 function InvoicesPages({ activeButtonIndex }) {
   console.log(activeButtonIndex);
   switch (activeButtonIndex) {
     default:
     case 0:
       return (
-        <div className="w-full p-4 text-white border-white border-2">
-          <h1>Invoice List</h1>
+        <div className="w-full p-4 text-white ">
+          
+          <div className="bg-[#191c24] px-6 pt-4 rounded-[4px] col-span-2 w-full h-[520px]">
+          <div className="text-white p-4 text-xl font-medium mb-5 border-b-2 border-gray-400">
+            <h5>Invoice list</h5>
+          </div>
+          <InvoiceListTable/>
+        </div>
         </div>
       );
 
@@ -29,6 +37,8 @@ function InvoicesPages({ activeButtonIndex }) {
 
 InvoicesPages.propTypes = {
   activeButtonIndex: PropTypes.number.isRequired,
+  
+
 };
 
 export default InvoicesPages;
