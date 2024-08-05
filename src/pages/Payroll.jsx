@@ -1,4 +1,3 @@
-import RootLayout from "../components/HOC/RootLayout";
 import PagesTitle from "../components/molecule/PagesTitle";
 function Payroll() {
   return (
@@ -8,7 +7,5 @@ function Payroll() {
   )
 }
 
-const WrappedFooter = RootLayout(Payroll);
-
-export default WrappedFooter;
+export default Payroll;
 

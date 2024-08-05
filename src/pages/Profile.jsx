@@ -1,4 +1,3 @@
-import RootLayout from "../components/HOC/RootLayout";
 import PagesTitle from "../components/molecule/PagesTitle";
 
 function Profile() {
@@ -9,6 +8,4 @@ function Profile() {
   )
 }
 
-const WrappedFooter = RootLayout(Profile);
-
-export default WrappedFooter;
+export default Profile;

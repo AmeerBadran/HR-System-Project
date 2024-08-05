@@ -1,4 +1,3 @@
-import RootLayout from "../components/HOC/RootLayout";
 import PagesTitle from "../components/molecule/PagesTitle";
 import dashboardCardsData from "../constants/dashboardCardsData";
 import DashboardCard from "../components/molecule/DashboardCard";
@@ -47,6 +46,5 @@ function Dashboard() {
   );
 }
 
-const WrappedFooter = RootLayout(Dashboard);
 
-export default WrappedFooter;
+export default Dashboard;

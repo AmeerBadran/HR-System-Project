@@ -1,20 +1,21 @@
 import { useState } from 'react';
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
-import { invoiceListData } from '../../constants/invoicesListData';
+
+const invoicesFilter = ['Paid', 'Unpaid', 'Delayed']
 
 
-const values = invoiceListData.map((option, index) => ({
-  id: index,
-  name: option.condition,
-}));
 
 
 
 
 export default function Searchbar() {
+  const values = invoicesFilter.map((option, index) => ({
+    id: index,
+    name: option,
+  }));
   const [selected, setSelected] = useState(values[0]);
-  console.log(selected.name)
+  
   return (
     <Listbox value={selected} onChange={setSelected} className="w-36 ">
 

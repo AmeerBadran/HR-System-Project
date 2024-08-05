@@ -164,6 +164,6 @@ const DashboardProjectsTable = ({ tableType, day }) => {
 
 DashboardProjectsTable.propTypes = {
   tableType: PropTypes.string.isRequired,
-  day: PropTypes.string.isRequired,
+  day: PropTypes.string,
 };
 export default DashboardProjectsTable;
