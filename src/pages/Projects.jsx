@@ -1,4 +1,3 @@
-import RootLayout from "../components/HOC/RootLayout";
 import PagesTitle from "../components/molecule/PagesTitle";
 function Projects() {
   return (
@@ -8,7 +7,5 @@ function Projects() {
   )
 }
 
-const WrappedFooter = RootLayout(Projects);
-
-export default WrappedFooter;
+export default Projects;
 

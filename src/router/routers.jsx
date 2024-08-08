@@ -3,6 +3,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import RootLayout from "../components/HOC/RootLayout";
 import Dashboard from "../pages/Dashboard";
 import Profile from "../pages/Profile";
 import Employees from "../pages/Employees";
@@ -17,58 +18,64 @@ import Invoices from "../pages/Invoices";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <Dashboard />
-    ),
-  },
-  {
-    path: "profile",
-    element:
-      <Profile />
-  },
-  {
-    path: "employees",
-    element: (
-      <Employees />
-    ),
-  },
-  {
-    path: "departments",
-    element:
-      <Departments />
-  },
-  {
-    path: "attendance",
-    element: (
-      <Attendance />
-    ),
-  },
-  {
-    path: "leaveRequest",
-    element:
-      <LeaveRequest />
-  },
-  {
-    path: "payroll",
-    element: (
-      <Payroll />
-    ),
-  },
-  {
-    path: "contracts",
-    element:
-      <Contracts />
-  },
-  {
-    path: "projects",
-    element: (
-      <Projects />
-    ),
-  },
-  {
-    path: "invoices",
-    element:
-      <Invoices />
+    element: <RootLayout />,
+    children: [
+      {
+        path: "/",
+        element: (
+          <Dashboard />
+        ),
+      },
+      {
+        path: "profile",
+        element:
+          <Profile />
+      },
+      {
+        path: "employees",
+        element: (
+          <Employees />
+        ),
+      },
+      {
+        path: "departments",
+        element:
+          <Departments />
+      },
+      {
+        path: "attendance",
+        element: (
+          <Attendance />
+        ),
+      },
+      {
+        path: "leaveRequest",
+        element:
+          <LeaveRequest />
+      },
+      {
+        path: "payroll",
+        element: (
+          <Payroll />
+        ),
+      },
+      {
+        path: "contracts",
+        element:
+          <Contracts />
+      },
+      {
+        path: "projects",
+        element: (
+          <Projects />
+        ),
+      },
+      {
+        path: "invoices",
+        element:
+          <Invoices />
+      },
+    ],
   },
   {
     path: '*',

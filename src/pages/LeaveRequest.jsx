@@ -1,4 +1,4 @@
-import RootLayout from "../components/HOC/RootLayout";
+
 import PagesTitle from "../components/molecule/PagesTitle";
 function LeaveRequest() {
   return (
@@ -8,7 +8,5 @@ function LeaveRequest() {
   )
 }
 
-const WrappedFooter = RootLayout(LeaveRequest);
-
-export default WrappedFooter;
+export default LeaveRequest;
 
