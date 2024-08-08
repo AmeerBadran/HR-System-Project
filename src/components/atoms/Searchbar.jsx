@@ -3,21 +3,34 @@ import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headless
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
 
 const invoicesFilter = ['Paid', 'Unpaid', 'Delayed']
+const leaveRequestState = ['Approved', 'Rejected', 'Pending']
 
+// eslint-disable-next-line react/prop-types
+export default function Searchbar({ filterFor, onSelectValue }) {
 
+  let filterData;
+  if (filterFor === 'forInvoices') {
+    filterData = invoicesFilter
+  } else if (filterFor === 'forLeaveRequest') {
+    filterData = leaveRequestState
+  }
 
+  const handleFilter = (value) => {
+    setSelected(value);
+    if (onSelectValue) {
+      onSelectValue(value);
+    }
+  };
 
-
-
-export default function Searchbar() {
-  const values = invoicesFilter.map((option, index) => ({
+  const values = filterData.map((option, index) => ({
     id: index,
     name: option,
   }));
+
   const [selected, setSelected] = useState(values[0]);
-  
+
   return (
-    <Listbox value={selected} onChange={setSelected} className="w-36 ">
+    <Listbox value={selected} onChange={handleFilter} className="w-36 ">
 
       <div className="relative mt-2">
         <ListboxButton className="relative w-full cursor-default rounded-md bg-[#2A2D36] py-1.5 pl-3 pr-10 text-left font-normal text-white text-lg shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 sm:text-sm sm:leading-6">
