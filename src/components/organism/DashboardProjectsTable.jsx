@@ -1,18 +1,23 @@
 import PropTypes from 'prop-types';
+import { useState } from 'react';
+import { deleteDepartment } from '../../features/departments/departmentsSlice';
+
+import { useSelector ,useDispatch } from 'react-redux';
+
 import { projectData } from "../../constants/dashboardProjectTableData";
 import { invoiceListData } from "../../constants/invoicesListData";
-import { leaveRequestsData } from '../../constants/leaveRequestsData'
+import { leaveRequestsData } from '../../constants/leaveRequestsData';
 import DashboardProjectTableRow from "../molecule/DashboardProjectTableRow";
 import AttendanceInRow from '../molecule/AttendanceInRow';
 import InvoiceListTableRow from '../molecule/InvoicesListTableRow';
 import LeaveRequestRow from '../molecule/LeaveRequestRow';
+import DepartmentTableRow from '../molecule/DepartmentTableRow';
 
-const projects = ['Project Name', 'Hours', 'Priority', 'Progress']
-const invoices = ["Employee name ", "Employee Adress", "Per hour payment", "Condition", " Options"]
-const attendance = ['id', 'Employee Name', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-const leaveRequests = ['No Request', 'Emp Id', 'Emp Name', 'Type', 'Start Date', 'Expiry Date', 'Message', 'State', '']
-
-
+const projects = ['Project Name', 'Hours', 'Priority', 'Progress'];
+const invoices = ["Employee name", "Employee Address", "Per hour payment", "Condition", "Options"];
+const attendance = ['ID', 'Employee Name', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const leaveRequests = ['No Request', 'Emp ID', 'Emp Name', 'Type', 'Start Date', 'Expiry Date', 'Message', 'State', ''];
+const departments = ['Department Name', 'Number of Employees', 'Head of Department', 'Location', 'Budget', 'Actions'];
 
 const fackData = [
   {
@@ -122,7 +127,33 @@ const fackData = [
 ];
 
 
+
 const DashboardProjectsTable = ({ tableType, day }) => {
+  const dispatch = useDispatch();
+
+  const departmentsData = useSelector((state) => state.departments)
+
+  const [editId, setEditId] = useState(null);
+
+  const handleEdit = (id) => {
+    console.log(`Editing department with id: ${id}`);
+    setEditId(id);
+  };
+
+  const handleSave = () => {
+    setEditId(null); 
+  };
+
+  const handleCancel = () => {
+    setEditId(null); 
+  };
+
+  const handleDelete = (id) => {
+    console.log(`Deleting department with id: ${id}`);
+    dispatch(deleteDepartment(id)); 
+  };
+  
+
   let column;
   if (tableType === 'projects') {
     column = projects;
@@ -131,48 +162,67 @@ const DashboardProjectsTable = ({ tableType, day }) => {
   } else if (tableType === 'invoices') {
     column = invoices;
   } else if (tableType === 'leaveRequests') {
-    column = leaveRequests
+    column = leaveRequests;
+  } else if (tableType === 'departments') {
+    column = departments;
   }
 
   return (
-    <table className="table-container sec-table-div w-full border-b border-gray-600 text-white overflow-x-auto">
-      <thead>
-        <tr>
-          {column.map((header, index) => (
-            <th key={index} className="border-b border-gray-600 p-3 text-[#637381] text-left">
-              {header}
-            </th>
+    <div className="w-full bg-[#191c24] p-8 rounded-[4px] mt-10">
+      {tableType === 'departments' && (
+        <div className="mb-8">
+          <h5 className="text-white text-lg font-semibold mb-2">Departments List</h5>
+          <div className="border-b border-gray-600 mb-8 mt-4" />
+        </div>
+      )}
+      <table className="w-full text-white overflow-x-auto">
+        <thead>
+          <tr>
+            {column.map((header, index) => (
+              <th key={index} className="border-b border-gray-600 p-3 text-[#637381] text-left">
+                {header}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {tableType === 'projects' && projectData.map((project, index) => (
+            <DashboardProjectTableRow key={index} {...project} />
           ))}
-        </tr>
-      </thead>
-      <tbody>
-        {tableType === 'projects' && projectData.map((project, index) => (
-          <DashboardProjectTableRow key={index} {...project} />
-        ))}
-        {tableType === 'invoices' && invoiceListData.map((invoices, index) => (
-          <InvoiceListTableRow key={index} {...invoices} />
-        ))}
-        {tableType === 'leaveRequests' && leaveRequestsData.map((leaveRequest, index) => (
-          <LeaveRequestRow key={index} {...leaveRequest} />
-        ))}
-        {(tableType === 'attendance in' || tableType === 'attendance out') && fackData.map((empData, index) => (
-          <AttendanceInRow
-            key={index}
-            employeeId={empData.id}
-            employeeName={empData.name}
-            attendance={empData.attendance}
-            dayNow={day}
-            checkInOut={tableType}
-          />
-        ))}
-      </tbody>
-    </table>
-
+          {tableType === 'invoices' && invoiceListData.map((invoice, index) => (
+            <InvoiceListTableRow key={index} {...invoice} />
+          ))}
+          {tableType === 'leaveRequests' && leaveRequestsData.map((leaveRequest, index) => (
+            <LeaveRequestRow key={index} {...leaveRequest} />
+          ))}
+          {(tableType === 'attendance in' || tableType === 'attendance out') && fackData.map((empData, index) => (
+            <AttendanceInRow
+              key={index}
+              employeeId={empData.id}
+              employeeName={empData.name}
+              attendance={empData.attendance}
+              dayNow={day}
+              checkInOut={tableType}
+            />
+          ))}
+          {tableType === 'departments' && departmentsData.map((department, index) => (
+            <DepartmentTableRow key={index} {...department} 
+              onEdit={() => handleEdit(department.id)}
+              onDelete={() => handleDelete(department.id)}
+              isEditing={editId === department.id}
+              onSave={handleSave}
+              onCancel={handleCancel} />
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 
 DashboardProjectsTable.propTypes = {
   tableType: PropTypes.string.isRequired,
   day: PropTypes.string,
+
 };
+
 export default DashboardProjectsTable;
