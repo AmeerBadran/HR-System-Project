@@ -1,5 +1,7 @@
-import luffy from "../../assets/images/luffy.jpg"
-export default function PayrollCard() {
+import PropTypes from 'prop-types';
+
+
+export default function PayrollCard({name, Salary, Adress , Avatar, Position, Date}) {
   return (
     
       <div className="mt-8 flex justify-center ">
@@ -7,23 +9,23 @@ export default function PayrollCard() {
           <div className="bg-[#191c24] p-5 rounded-t-md text-white flex max-w-5xl w-screen items-center ">
             <img
               className="w-10 h-10 rounded-full"
-              src={luffy}
+              src={Avatar}
               alt="Rounded avatar"
             />
             <div className="w-full ml-4">
               <div className="flex justify-between">
-                <p className="text-[1.75rem]">Ryan MacLeod</p>
-                <p>2211 Jones Avenue, Winston Salem FL 27107</p>
+                <p className="text-[1.75rem]">{name}</p>
+                <p>{Adress}</p>
               </div>
               <div className="flex justify-between">
-                <p >Box of Crayons</p>
-                <p>$50 per hour</p>
+                <p >{Position}</p>
+                <p>$ {Salary} per hour</p>
               </div>
             </div>
           </div>
           <div className="border-t-2 border-[#FFFFFF6d] flex justify-between items-center bg-[#000] text-white p-5 rounded-b-md">
             <div>
-              <strong className="mr-1">Applied on: </strong> 23 Feb, 2021
+              <strong className="mr-1">Applied on: </strong> {Date}
             </div>
             <div className="flex justify-center space-x-4 ">
               <button
@@ -50,4 +52,14 @@ export default function PayrollCard() {
       </div>
     
   );
+}
+
+PayrollCard.propTypes = {
+  name: PropTypes.string,
+  Salary : PropTypes.number,
+  Adress : PropTypes.string,
+  Avatar : PropTypes.img,
+  Position: PropTypes.string,
+  Date: PropTypes.string,
+
 }
