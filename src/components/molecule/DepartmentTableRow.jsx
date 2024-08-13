@@ -61,11 +61,11 @@ const DepartmentTableRow = ({ id, name, employees, head, location, budget, onEdi
           budget
         )}
       </td>
-      <td className="border-b border-gray-600 p-3 flex space-x-2">
+      <td className="border-b border-gray-600 p-3 space-x-2">
         {isEditing ? (
           <>
-            <button onClick={onSave} className="bg-green-500 text-white px-2 py-1 rounded">Save</button>
-            <button onClick={onCancel} className="bg-red-500 text-white px-2 py-1 rounded">Cancel</button>
+             <button onClick={onSave} className="bg-gradient-to-r to-[#d41459] from-[#911a6c] text-white px-2 py-1 rounded">Save</button>
+             <button onClick={onCancel} className="bg-gray-300 hover:bg-gray-400 text-gray-800 px-2 py-1 rounded">Cancel</button>
           </>
         ) : (
           <>
