@@ -72,7 +72,7 @@ export default function DepartmentsNavbar({ pageTitle }) {
                       className="mt-1 p-2 border border-gray-300 rounded w-full"
                     />
                     {errors.name && touched.name ? (
-                      <div className="text-red-600 text-sm">{errors.name}</div>
+                      <div className="text-[#d41459] text-sm">{errors.name}</div>
                     ) : null}
                   </div>
                   <div className="mb-4">
@@ -83,7 +83,7 @@ export default function DepartmentsNavbar({ pageTitle }) {
                       className="mt-1 p-2 border border-gray-300 rounded w-full"
                     />
                     {errors.employees && touched.employees ? (
-                      <div className="text-red-600 text-sm">{errors.employees}</div>
+                      <div className="text-[#d41459] text-sm">{errors.employees}</div>
                     ) : null}
                   </div>
                   <div className="mb-4">
@@ -94,7 +94,7 @@ export default function DepartmentsNavbar({ pageTitle }) {
                       className="mt-1 p-2 border border-gray-300 rounded w-full"
                     />
                     {errors.head && touched.head ? (
-                      <div className="text-red-600 text-sm">{errors.head}</div>
+                      <div className="text-[#d41459] text-sm">{errors.head}</div>
                     ) : null}
                   </div>
                   <div className="mb-4">
@@ -105,7 +105,7 @@ export default function DepartmentsNavbar({ pageTitle }) {
                       className="mt-1 p-2 border border-gray-300 rounded w-full"
                     />
                     {errors.location && touched.location ? (
-                      <div className="text-red-600 text-sm">{errors.location}</div>
+                      <div className="text-[#d41459] text-sm">{errors.location}</div>
                     ) : null}
                   </div>
                   <div className="mb-4">
@@ -116,7 +116,7 @@ export default function DepartmentsNavbar({ pageTitle }) {
                       className="mt-1 p-2 border border-gray-300 rounded w-full"
                     />
                     {errors.budget && touched.budget ? (
-                      <div className="text-red-600 text-sm">{errors.budget}</div>
+                      <div className="text-[#d41459] text-sm">{errors.budget}</div>
                     ) : null}
                   </div>
                   <div className="flex justify-end">
