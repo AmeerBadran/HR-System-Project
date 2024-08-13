@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import InvoicesNavbar from '../organism/InvoicesNavbar';
 import DepartmentsNavbar from '../organism/DepartmentsNavbar';
+import ContractsNavbar from '../organism/ContractsNavbar'; 
 
-export default function PagesTitle({ pageTitle, setDepartmentsData, setActiveButtonIndex, activeButtonIndex }) {
+export default function PagesTitle({ pageTitle, setDepartmentsData, setContractsData, setActiveButtonIndex, activeButtonIndex }) {
   return (
     <div className="flex items-center justify-between w-full bg-gradient-to-r to-[#d41459] from-[#911a6c] rounded-md px-12 h-[87px]">
       <h1 className="text-white text-2xl font-semibold">{pageTitle}</h1>
@@ -17,6 +18,12 @@ export default function PagesTitle({ pageTitle, setDepartmentsData, setActiveBut
           activeButtonIndex={activeButtonIndex}
           setActiveButtonIndex={setActiveButtonIndex}
           setDepartmentsData={setDepartmentsData}
+        />
+      ) : pageTitle === 'Contracts' ? (
+        <ContractsNavbar
+          activeButtonIndex={activeButtonIndex}
+          setActiveButtonIndex={setActiveButtonIndex}
+          setContractsData={setContractsData}
         />
       ) : (
         <button
@@ -35,4 +42,6 @@ PagesTitle.propTypes = {
   activeButtonIndex: PropTypes.number.isRequired,
   setActiveButtonIndex: PropTypes.func.isRequired,
   setDepartmentsData: PropTypes.func.isRequired,
+  setContractsData: PropTypes.func,
+
 };
