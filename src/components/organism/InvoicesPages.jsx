@@ -15,7 +15,7 @@ function InvoicesPages({ activeButtonIndex }) {
 
           <div className="bg-[#191c24] px-6 py-4 rounded-[4px] col-span-2 w-full overflow-x-auto">
             <div className="text-white p-4 text-xl font-medium mb-5 border-b-2 border-gray-400">
-              <h5 className="flex items-center justify-between">Invoice list <Searchbar /> </h5>
+              <h5 className="flex items-center justify-between">Invoice list <Searchbar filterFor={'forInvoices'} /> </h5>
             </div>
             <DashboardProjectsTable tableType={"invoices"} />
             <PaginationRounded count={2} onPageChange={handlePageChange} />

@@ -1,4 +1,3 @@
-import RootLayout from "../components/HOC/RootLayout";
 import PagesTitle from "../components/molecule/PagesTitle";
 import InvoicesPages from  "../components/organism/InvoicesPages.jsx";
 import { useState } from 'react';
@@ -16,7 +15,6 @@ function Invoices() {
   )
 }
 
-const WrappedFooter = RootLayout(Invoices);
 
-export default WrappedFooter;
+export default Invoices;
 

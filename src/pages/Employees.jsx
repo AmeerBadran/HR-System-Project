@@ -1,4 +1,3 @@
-import RootLayout from "../components/HOC/RootLayout";
 import PagesTitle from "../components/molecule/PagesTitle";
 import EmployeeCard from "../components/organism/EmployeeCard";
 import {

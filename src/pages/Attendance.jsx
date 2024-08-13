@@ -1,5 +1,4 @@
 import { useState, useMemo } from "react";
-import RootLayout from "../components/HOC/RootLayout";
 import PagesTitle from "../components/molecule/PagesTitle";
 import DashboardProjectsTable from "../components/organism/DashboardProjectsTable";
 import { IoLogIn, IoLogOut } from "react-icons/io5";
@@ -69,6 +68,4 @@ function Attendance() {
   );
 }
 
-const WrappedFooter = RootLayout(Attendance);
-
-export default WrappedFooter;
+export default Attendance;
