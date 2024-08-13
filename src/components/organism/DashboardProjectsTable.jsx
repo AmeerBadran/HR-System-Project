@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { deleteDepartment } from '../../features/departments/departmentsSlice';
-
+import { deleteContract } from '../../features/contracts/contractsSlice';
+import { updateContract } from '../../features/contracts/contractsSlice';
+import { updateDepartment } from '../../features/departments/departmentsSlice';
 import { useSelector ,useDispatch } from 'react-redux';
 
 import { projectData } from "../../constants/dashboardProjectTableData";
@@ -12,12 +14,14 @@ import AttendanceInRow from '../molecule/AttendanceInRow';
 import InvoiceListTableRow from '../molecule/InvoicesListTableRow';
 import LeaveRequestRow from '../molecule/LeaveRequestRow';
 import DepartmentTableRow from '../molecule/DepartmentTableRow';
+import ContractTableRow from '../molecule/ContractTableRow';
 
 const projects = ['Project Name', 'Hours', 'Priority', 'Progress'];
 const invoices = ["Employee name", "Employee Address", "Per hour payment", "Condition", "Options"];
 const attendance = ['ID', 'Employee Name', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const leaveRequests = ['No Request', 'Emp ID', 'Emp Name', 'Type', 'Start Date', 'Expiry Date', 'Message', 'State', ''];
 const departments = ['Department Name', 'Number of Employees', 'Head of Department', 'Location', 'Budget', 'Actions'];
+const contracts = ['Employee Name', 'Contract Type', 'Position', 'Start Date', 'End Date', 'Salary', 'Actions'];
 
 const fackData = [
   {
@@ -132,6 +136,7 @@ const DashboardProjectsTable = ({ tableType, day }) => {
   const dispatch = useDispatch();
 
   const departmentsData = useSelector((state) => state.departments)
+  const contractsData = useSelector((state) => state.contracts);
 
   const [editId, setEditId] = useState(null);
 
@@ -140,17 +145,24 @@ const DashboardProjectsTable = ({ tableType, day }) => {
     setEditId(id);
   };
 
-  const handleSave = () => {
+  const handleSave = (id, updatedData) => {
+    if (tableType === 'departments') {
+      dispatch(updateDepartment({ id, ...updatedData }));
+    } else if (tableType === 'contracts') {
+      dispatch(updateContract({ id, ...updatedData }));
+    }
     setEditId(null); 
   };
-
   const handleCancel = () => {
     setEditId(null); 
   };
 
   const handleDelete = (id) => {
     console.log(`Deleting department with id: ${id}`);
-    dispatch(deleteDepartment(id)); 
+    if (tableType === 'departments') {
+      dispatch(deleteDepartment(id)); 
+    } else if (tableType === 'contracts') {
+      dispatch(deleteContract(id));    }
   };
   
 
@@ -165,6 +177,8 @@ const DashboardProjectsTable = ({ tableType, day }) => {
     column = leaveRequests;
   } else if (tableType === 'departments') {
     column = departments;
+  }else if (tableType === 'contracts') {
+    column = contracts;
   }
 
   return (
@@ -174,12 +188,17 @@ const DashboardProjectsTable = ({ tableType, day }) => {
           <h5 className="text-white text-lg font-semibold mb-2">Departments List</h5>
           <div className="border-b border-gray-600 mb-8 mt-4" />
         </div>
+      )}{tableType === 'contracts' && (
+        <div className="mb-8">
+          <h5 className="text-white text-lg font-semibold mb-2">Contracts List</h5>
+          <div className="border-b border-gray-600 mb-8 mt-4" />
+        </div>
       )}
       <table className="w-full text-white overflow-x-auto">
         <thead>
           <tr>
             {column.map((header, index) => (
-              <th key={index} className="border-b border-gray-600 p-3 text-[#637381] text-left">
+              <th key={index} className="border-b border-gray-600  p-3 text-[#637381] text-left">
                 {header}
               </th>
             ))}
@@ -210,6 +229,14 @@ const DashboardProjectsTable = ({ tableType, day }) => {
               onEdit={() => handleEdit(department.id)}
               onDelete={() => handleDelete(department.id)}
               isEditing={editId === department.id}
+              onSave={handleSave}
+              onCancel={handleCancel} />
+          ))}
+          {tableType === 'contracts' && contractsData.map((contract, index) => (
+            <ContractTableRow key={index} {...contract}
+              onEdit={() => handleEdit(contract.id)}
+              onDelete={() => handleDelete(contract.id)}
+              isEditing={editId === contract.id}
               onSave={handleSave}
               onCancel={handleCancel} />
           ))}
