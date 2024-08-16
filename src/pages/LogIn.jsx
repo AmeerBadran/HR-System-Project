@@ -61,7 +61,7 @@ const LogIn = () => {
                 <span className="text-3xl font-bold text-white text-shadow mb-8">
                     ACCOUNT LOGIN
                 </span>
-                <form className="bg-white p-8 rounded-2xl shadow-lg w-96 h-96" onSubmit={handleFormSubmit}>
+                <form className="bg-white p-8 rounded-2xl shadow-lg w-96" onSubmit={handleFormSubmit}>
                     <div className="relative mb-10 mt-6">
                         <div className="flex items-center">
                             <IoPersonOutline
