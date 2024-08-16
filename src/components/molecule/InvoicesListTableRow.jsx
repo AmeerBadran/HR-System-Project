@@ -15,24 +15,17 @@ const InvoiceListTableRow = ({ name, Salary, Adress, condition }) => {
             {name}
           </button>
         </div>
-
       </td>
-
-      <td className="border-b border-gray-600 p-3  items-center">
+      <td className="border-b border-gray-600 p-3 items-center">
         <div className='flex items-center'>
           <IoLocationSharp className='mr-2 text-cyan-400' /> {Adress}
         </div>
-
       </td>
-
       <td className="border-b border-gray-600 p-3  items-center">
         <div className='flex items-center'>
           <FaMoneyCheckDollar className='mr-2 text-amber-400' /> ${Salary} per hour
         </div>
-
-
       </td>
-
       <td className="border-b border-gray-600 p-3">
         <span className={`inline-block border ${condition === 'Paid' ? 'text-[#08D25B] border-[#08D25B]' : condition === 'Unpaid' ? 'text-[#FFAB13] border-[#FFAB13]' : condition === 'Delayed' ? 'text-[#EE414A] border-[#EE414A]' : ''} rounded-[4px] px-3 py-1`}>
           {condition}

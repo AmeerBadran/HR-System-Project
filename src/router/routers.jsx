@@ -14,6 +14,7 @@ import Payroll from "../pages/Payroll";
 import Contracts from "../pages/Contracts";
 import Projects from "../pages/Projects";
 import Invoices from "../pages/Invoices";
+import LogIn from "../pages/LogIn";
 
 const router = createBrowserRouter([
   {
@@ -76,6 +77,11 @@ const router = createBrowserRouter([
           <Invoices />
       },
     ],
+  },
+  {
+    path: "/Login",
+    element:
+      <LogIn />
   },
   {
     path: '*',

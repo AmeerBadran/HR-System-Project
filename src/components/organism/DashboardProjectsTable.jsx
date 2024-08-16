@@ -1,3 +1,4 @@
+//import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { projectData } from "../../constants/dashboardProjectTableData";
 import { invoiceListData } from "../../constants/invoicesListData";
@@ -7,12 +8,15 @@ import AttendanceInRow from '../molecule/AttendanceInRow';
 import InvoiceListTableRow from '../molecule/InvoicesListTableRow';
 import LeaveRequestRow from '../molecule/LeaveRequestRow';
 
+//endpoints
+
+//import { getLeaveRequsets } from '../../api/endpoints/leaveRequests';
+
+
 const projects = ['Project Name', 'Hours', 'Priority', 'Progress']
 const invoices = ["Employee name ", "Employee Adress", "Per hour payment", "Condition", " Options"]
 const attendance = ['id', 'Employee Name', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-const leaveRequests = ['No Request', 'Emp Id', 'Emp Name', 'Type', 'Start Date', 'Expiry Date', 'Message', 'State', '']
-
-
+const leaveRequests = ['No. Request', 'Emp Id', 'Emp Name', 'Type', 'Start Date', 'Expiry Date', 'Message', 'State', '']
 
 const fackData = [
   {
@@ -121,8 +125,23 @@ const fackData = [
   },
 ];
 
-
 const DashboardProjectsTable = ({ tableType, day }) => {
+  
+  /*
+    const getLeaveRequestsData = async () => {
+      try {
+        const response = await getLeaveRequsets()
+        return response
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  
+    useEffect(() => {
+      getLeaveRequestsData
+    }, [])
+  */
+
   let column;
   if (tableType === 'projects') {
     column = projects;
