@@ -1,7 +1,6 @@
-import PropTypes from 'prop-types';
-
+/* eslint-disable react/prop-types */
 import InvoicesNavbar from '../organism/InvoicesNavbar';
-export default function PagesTitle({ pageTitle, setActiveButtonIndex, activeButtonIndex }) {
+export default function PagesTitle({ pageTitle, setActiveButtonIndex, activeButtonIndex, onAddProjectClick }) {
 
 
   return (
@@ -10,18 +9,17 @@ export default function PagesTitle({ pageTitle, setActiveButtonIndex, activeButt
       {pageTitle === 'Invoices' ? (
         <InvoicesNavbar activeButtonIndex={activeButtonIndex} setActiveButtonIndex={setActiveButtonIndex} />
       ) : pageTitle === 'Projects' ? (
-        <button type="button" className="border border-[#FFFFFF55] py-[11px] px-5 rounded-full text-white text-sm font-medium hover:bg-white hover:text-black transition-colors duration-200">Add Project</button>
+        <button
+          type="button"
+          onClick={onAddProjectClick}
+          className="border border-[#FFFFFF55] py-[11px] px-5 rounded-full text-white text-sm font-medium hover:bg-white hover:text-black transition-colors duration-200"
+        >
+          Add Project
+        </button>
       ) : (
-      <button type="button" className="border border-[#FFFFFF55] py-[11px] px-5 rounded-full text-white text-sm font-medium hover:bg-white hover:text-black transition-colors duration-200">Page Action...</button>
+        <button type="button" className="border border-[#FFFFFF55] py-[11px] px-5 rounded-full text-white text-sm font-medium hover:bg-white hover:text-black transition-colors duration-200">Page Action...</button>
       )
       }
     </div>
   )
 }
-
-PagesTitle.propTypes = {
-  pageTitle: PropTypes.string,
-  activeButtonIndex: PropTypes.number,
-  setActiveButtonIndex: PropTypes.func
-
-};
