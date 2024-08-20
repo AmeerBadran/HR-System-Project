@@ -6,7 +6,7 @@ import AttendanceInRow from '../molecule/AttendanceInRow';
 import InvoiceListTableRow from '../molecule/InvoicesListTableRow';
 
 const projects = ['Project Name', 'Hours', 'Priority', 'Progress']
-const invoices = ["Employee name ", "Employee Adress", "Per hour payment", "Condition", " Options"]
+const invoices = ["Employee name ", "Invoice amount", "Invoice Date","Invoice Due","Description", "Status", " Options"]
 const attendance = ['id', 'Employee Name', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
 

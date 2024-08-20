@@ -6,7 +6,7 @@ import { invoiceListData } from '../../constants/invoicesListData';
 
 const values = invoiceListData.map((option, index) => ({
   id: index,
-  name: option.condition,
+  name: option.status,
 }));
 
 
