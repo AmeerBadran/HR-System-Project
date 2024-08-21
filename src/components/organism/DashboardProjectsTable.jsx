@@ -14,7 +14,7 @@ import LeaveRequestRow from '../molecule/LeaveRequestRow';
 
 
 const projects = ['Project Name', 'Hours', 'Priority', 'Progress']
-const invoices = ["Employee name ", "Employee Adress", "Per hour payment", "Condition", " Options"]
+const invoices = ["Employee name ", "Invoice amount", "Invoice Date","Invoice Due","Description", "Status", " Options"]
 const attendance = ['id', 'Employee Name', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 const leaveRequests = ['No. Request', 'Emp Id', 'Emp Name', 'Type', 'Start Date', 'Expiry Date', 'Message', 'State', '']
 
