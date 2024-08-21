@@ -1,8 +1,8 @@
 export const invoiceListData = [
-  { name: 'Ryan MacLeod', Salary: 50, Adress: " 2211 Jones Avenue,Winston Salem FL 27107", condition: 'Paid' },
-  { name: 'Penelope Stewart', Salary: 43, Adress: "3154 Sampson Street,Aurora CT 80014", condition: 'Unpaid' },
-  { name: 'Diane Slater', Salary: 25, Adress: "49 Stamford Road. West Chicago, IL 60185", condition: 'Delayed' },
-  { name: 'Amy Mills', Salary: 55, Adress: "2698 Northumberland. Melbourne, FL 32904", condition: 'Paid' },
-  { name: 'Penelope Stewart', Salary: 43, Adress: "3154 Sampson Street,Aurora CT 80014", condition: 'Unpaid' },
-  { name: 'Diane Slater', Salary: 25, Adress: "49 Stamford Road. West Chicago, IL 60185", condition: 'Delayed' },
+  { name: 'Ryan MacLeod', amount : 500, invoiceDate: "November 14, 2023",invoiceDue:"December 14, 2023", description:"marketing campaign services.",status: 'Paid' },
+  { name: 'Penelope Stewart', amount : 430, invoiceDate: "June 22, 2023",invoiceDue:"July 22, 2023", description:"Invoice for the mid-year employee training program.",status: 'Unpaid' },
+  { name: 'Diane Slater', amount : 250, invoiceDate: "April 9, 2023",invoiceDue:"May 9, 2023", description:"Payment for the website redesign and updates completed in April.",status: 'Delayed' },
+  { name: 'Amy Mills', amount : 550, invoiceDate: "September 3, 2023",invoiceDue:"October 3, 2023", description:"Invoice for the September IT maintenance services.",status: 'Paid' },
+  { name: 'Penelope Stewart', amount : 430, invoiceDate: "January 18, 2023",invoiceDue:"February 17, 2023", description:"Payment for the January utility bills.",status: 'Unpaid' },
+  { name: 'Diane Slater', amount : 250, invoiceDate: "August 7, 2023",invoiceDue:"September 6, 2023", description:"Invoice for the August consulting services.",status: 'Delayed' },
 ];
