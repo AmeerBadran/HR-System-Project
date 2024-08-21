@@ -3,6 +3,7 @@ import { TfiMenu } from "react-icons/tfi";
 import { MdEmail } from "react-icons/md";
 import { FaBell, FaPlus } from "react-icons/fa";
 import { IoMdArrowDropdown } from "react-icons/io";
+import { IoLogInOutline } from "react-icons/io5";
 import { TbLogout } from "react-icons/tb";
 import { CgProfile } from "react-icons/cg";
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
@@ -10,6 +11,10 @@ import { Link } from "react-router-dom";
 import { images, messages, notifications } from '../../constants/navbarData';
 import MessageItem from '../atoms/MessageItem';
 import NotificationItem from '../atoms/NotificationItem';
+
+
+const login = false;
+
 
 export default function Navbar({ sidebarSize, setSidebarSize, isSmallScreen, isHalfScreen }) {
   const changeSize = () => {
@@ -190,22 +195,35 @@ export default function Navbar({ sidebarSize, setSidebarSize, isSmallScreen, isH
                     </MenuItem>
                   </>
                 )}
-                <MenuItem>
-                  <Link to="/profile" className="flex items-center px-3 py-2 text-sm text-white data-[focus]:bg-[#13151B] border-b border-gray-700">
-                    <div className="p-2 bg-[#0d0d0d] rounded-full mr-3">
-                      <CgProfile className="text-green-500 text-xl" />
-                    </div>
-                    Profile
-                  </Link>
-                </MenuItem>
-                <MenuItem>
-                  <Link to="/" className="flex items-center px-4 py-3 text-sm text-white data-[focus]:bg-[#13151B] rounded-b-md">
-                    <div className="pr-[6px] pl-[10px] py-2 bg-[#0d0d0d] rounded-full mr-3">
-                      <TbLogout className="text-red-700 text-xl" />
-                    </div>
-                    Log Out
-                  </Link>
-                </MenuItem>
+                {login ? (
+                  <>
+                    <MenuItem>
+                      <Link to="/profile" className="flex items-center px-3 py-2 text-sm text-white data-[focus]:bg-[#13151B] border-b border-gray-700">
+                        <div className="p-2 bg-[#0d0d0d] rounded-full mr-3">
+                          <CgProfile className="text-green-500 text-xl" />
+                        </div>
+                        Profile
+                      </Link>
+                    </MenuItem>
+                    <MenuItem>
+                      <button to="/" className="flex items-center px-4 py-3 text-sm text-white data-[focus]:bg-[#13151B] rounded-b-md">
+                        <div className="pr-[6px] pl-[10px] py-2 bg-[#0d0d0d] rounded-full mr-3">
+                          <TbLogout className="text-red-700 text-xl" />
+                        </div>
+                        Log Out
+                      </button>
+                    </MenuItem>
+                  </>
+                ) : (
+                  <MenuItem>
+                    <Link to="/login" className="flex items-center px-4 py-3 text-sm text-white data-[focus]:bg-[#13151B] rounded-b-md">
+                      <div className="pl-[7px] pr-[9px] py-2 bg-[#0d0d0d] rounded-full mr-3">
+                        <IoLogInOutline className="text-green-600 text-xl" />
+                      </div>
+                      Log In
+                    </Link>
+                  </MenuItem>
+                )}
 
               </div>
             </MenuItems>

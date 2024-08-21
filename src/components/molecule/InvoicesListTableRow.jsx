@@ -15,7 +15,6 @@ const InvoiceListTableRow = ({ name, amount,invoiceDate,invoiceDue,description, 
             {name}
           </button>
         </div>
-
       </td>
 
       <td className="border-b border-gray-600 p-3  items-center">
@@ -29,10 +28,7 @@ const InvoiceListTableRow = ({ name, amount,invoiceDate,invoiceDue,description, 
         <div className='flex items-center'>
           <SlCalender className='mr-2 text-amber-900' /> {invoiceDate} 
         </div>
-
-
       </td>
-
       <td className="border-b border-gray-600 p-3  items-center">
         <div className='flex items-center'>
           <SlCalender className='mr-2 text-amber-400' /> {invoiceDue} 
@@ -44,10 +40,7 @@ const InvoiceListTableRow = ({ name, amount,invoiceDate,invoiceDue,description, 
         <div className='flex items-center'>
            {description} 
         </div>
-
-
       </td>
-
       <td className="border-b border-gray-600 p-3">
         <span className={`inline-block border ${status === 'Paid' ? 'text-[#08D25B] border-[#08D25B]' : status === 'Unpaid' ? 'text-[#FFAB13] border-[#FFAB13]' : status === 'Delayed' ? 'text-[#EE414A] border-[#EE414A]' : ''} rounded-[4px] px-3 py-1`}>
           {status}

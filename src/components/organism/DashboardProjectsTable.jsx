@@ -1,15 +1,22 @@
+//import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { projectData } from "../../constants/dashboardProjectTableData";
 import { invoiceListData } from "../../constants/invoicesListData";
+import { leaveRequestsData } from '../../constants/leaveRequestsData'
 import DashboardProjectTableRow from "../molecule/DashboardProjectTableRow";
 import AttendanceInRow from '../molecule/AttendanceInRow';
 import InvoiceListTableRow from '../molecule/InvoicesListTableRow';
+import LeaveRequestRow from '../molecule/LeaveRequestRow';
+
+//endpoints
+
+//import { getLeaveRequsets } from '../../api/endpoints/leaveRequests';
+
 
 const projects = ['Project Name', 'Hours', 'Priority', 'Progress']
 const invoices = ["Employee name ", "Invoice amount", "Invoice Date","Invoice Due","Description", "Status", " Options"]
 const attendance = ['id', 'Employee Name', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-
-
+const leaveRequests = ['No. Request', 'Emp Id', 'Emp Name', 'Type', 'Start Date', 'Expiry Date', 'Message', 'State', '']
 
 const fackData = [
   {
@@ -118,8 +125,23 @@ const fackData = [
   },
 ];
 
-
 const DashboardProjectsTable = ({ tableType, day }) => {
+  
+  /*
+    const getLeaveRequestsData = async () => {
+      try {
+        const response = await getLeaveRequsets()
+        return response
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  
+    useEffect(() => {
+      getLeaveRequestsData
+    }, [])
+  */
+
   let column;
   if (tableType === 'projects') {
     column = projects;
@@ -127,10 +149,12 @@ const DashboardProjectsTable = ({ tableType, day }) => {
     column = attendance;
   } else if (tableType === 'invoices') {
     column = invoices;
+  } else if (tableType === 'leaveRequests') {
+    column = leaveRequests
   }
-  
+
   return (
-    <table className="table-container sec-table-div w-full border-b border-gray-600 text-white">
+    <table className="table-container sec-table-div w-full border-b border-gray-600 text-white overflow-x-auto">
       <thead>
         <tr>
           {column.map((header, index) => (
@@ -147,6 +171,9 @@ const DashboardProjectsTable = ({ tableType, day }) => {
         {tableType === 'invoices' && invoiceListData.map((invoices, index) => (
           <InvoiceListTableRow key={index} {...invoices} />
         ))}
+        {tableType === 'leaveRequests' && leaveRequestsData.map((leaveRequest, index) => (
+          <LeaveRequestRow key={index} {...leaveRequest} />
+        ))}
         {(tableType === 'attendance in' || tableType === 'attendance out') && fackData.map((empData, index) => (
           <AttendanceInRow
             key={index}
@@ -159,11 +186,12 @@ const DashboardProjectsTable = ({ tableType, day }) => {
         ))}
       </tbody>
     </table>
+
   );
 };
 
 DashboardProjectsTable.propTypes = {
   tableType: PropTypes.string.isRequired,
-  day: PropTypes.string.isRequired,
+  day: PropTypes.string,
 };
 export default DashboardProjectsTable;
