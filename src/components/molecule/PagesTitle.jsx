@@ -38,10 +38,10 @@ export default function PagesTitle({ pageTitle, setDepartmentsData, setContracts
 }
 
 PagesTitle.propTypes = {
-  pageTitle: PropTypes.string.isRequired,
-  activeButtonIndex: PropTypes.number.isRequired,
-  setActiveButtonIndex: PropTypes.func.isRequired,
-  setDepartmentsData: PropTypes.func.isRequired,
+  pageTitle: PropTypes.string,
+  activeButtonIndex: PropTypes.number,
+  setActiveButtonIndex: PropTypes.func,
+  setDepartmentsData: PropTypes.func,
   setContractsData: PropTypes.func,
 
 };
