@@ -1,10 +1,8 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { deleteDepartment } from '../../features/departments/departmentsSlice';
-import { deleteContract } from '../../features/contracts/contractsSlice';
-import { updateContract } from '../../features/contracts/contractsSlice';
-import { updateDepartment } from '../../features/departments/departmentsSlice';
-import { useSelector ,useDispatch } from 'react-redux';
+import { deleteDepartment, updateDepartment } from '../../features/departments/departmentsSlice';
+import { deleteContract, updateContract } from '../../features/contracts/contractsSlice';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { projectData } from "../../constants/dashboardProjectTableData";
 import { invoiceListData } from "../../constants/invoicesListData";
@@ -15,6 +13,7 @@ import InvoiceListTableRow from '../molecule/InvoicesListTableRow';
 import LeaveRequestRow from '../molecule/LeaveRequestRow';
 import DepartmentTableRow from '../molecule/DepartmentTableRow';
 import ContractTableRow from '../molecule/ContractTableRow';
+import DepartmentEditForm from '../molecule/EditDepartmentForm';
 
 const projects = ['Project Name', 'Hours', 'Priority', 'Progress'];
 const invoices = ["Employee name", "Employee Address", "Per hour payment", "Condition", "Options"];
@@ -23,7 +22,7 @@ const leaveRequests = ['No Request', 'Emp ID', 'Emp Name', 'Type', 'Start Date',
 const departments = ['Department Name', 'Number of Employees', 'Head of Department', 'Location', 'Budget', 'Actions'];
 const contracts = ['Employee Name', 'Contract Type', 'Position', 'Start Date', 'End Date', 'Salary', 'Actions'];
 
-const fackData = [
+const fakeData = [
   {
     id: '011',
     name: 'Ameer',
@@ -130,41 +129,49 @@ const fackData = [
   },
 ];
 
-
-
 const DashboardProjectsTable = ({ tableType, day }) => {
   const dispatch = useDispatch();
-
-  const departmentsData = useSelector((state) => state.departments)
+  const departmentsData = useSelector((state) => state.departments);
   const contractsData = useSelector((state) => state.contracts);
 
   const [editId, setEditId] = useState(null);
+  const [editData, setEditData] = useState(null);
 
   const handleEdit = (id) => {
-    console.log(`Editing department with id: ${id}`);
+    console.log(`Editing ${tableType} with id: ${id}`);
+    if (tableType === 'departments') {
+      const department = departmentsData.find(dep => dep.id === id);
+      setEditData(department);
+    } else if (tableType === 'contracts') {
+      const contract = contractsData.find(con => con.id === id);
+      setEditData(contract);
+    }
     setEditId(id);
   };
 
-  const handleSave = (id, updatedData) => {
+  const handleSave = (updatedData) => {
     if (tableType === 'departments') {
-      dispatch(updateDepartment({ id, ...updatedData }));
+      dispatch(updateDepartment({ id: editId, ...updatedData }));
     } else if (tableType === 'contracts') {
-      dispatch(updateContract({ id, ...updatedData }));
+      dispatch(updateContract({ id: editId, ...updatedData }));
     }
-    setEditId(null); 
+    setEditId(null);
+    setEditData(null);
   };
+
   const handleCancel = () => {
-    setEditId(null); 
+    setEditId(null);
+    setEditData(null);
   };
 
   const handleDelete = (id) => {
-    console.log(`Deleting department with id: ${id}`);
+    console.log(`Deleting ${tableType} with id: ${id}`);
     if (tableType === 'departments') {
-      dispatch(deleteDepartment(id)); 
+      dispatch(deleteDepartment(id));
     } else if (tableType === 'contracts') {
-      dispatch(deleteContract(id));    }
+      dispatch(deleteContract(id));
+    }
   };
-  
 
   let column;
   if (tableType === 'projects') {
@@ -177,20 +184,17 @@ const DashboardProjectsTable = ({ tableType, day }) => {
     column = leaveRequests;
   } else if (tableType === 'departments') {
     column = departments;
-  }else if (tableType === 'contracts') {
+  } else if (tableType === 'contracts') {
     column = contracts;
   }
 
   return (
     <div className="w-full bg-[#191c24] p-8 rounded-[4px] mt-10">
-      {tableType === 'departments' && (
+      {(tableType === 'departments' || tableType === 'contracts') && (
         <div className="mb-8">
-          <h5 className="text-white text-lg font-semibold mb-2">Departments List</h5>
-          <div className="border-b border-gray-600 mb-8 mt-4" />
-        </div>
-      )}{tableType === 'contracts' && (
-        <div className="mb-8">
-          <h5 className="text-white text-lg font-semibold mb-2">Contracts List</h5>
+          <h5 className="text-white text-lg font-semibold mb-2">
+            {tableType === 'departments' ? 'Departments List' : 'Contracts List'}
+          </h5>
           <div className="border-b border-gray-600 mb-8 mt-4" />
         </div>
       )}
@@ -214,7 +218,7 @@ const DashboardProjectsTable = ({ tableType, day }) => {
           {tableType === 'leaveRequests' && leaveRequestsData.map((leaveRequest, index) => (
             <LeaveRequestRow key={index} {...leaveRequest} />
           ))}
-          {(tableType === 'attendance in' || tableType === 'attendance out') && fackData.map((empData, index) => (
+          {(tableType === 'attendance in' || tableType === 'attendance out') && fakeData.map((empData, index) => (
             <AttendanceInRow
               key={index}
               employeeId={empData.id}
@@ -225,23 +229,31 @@ const DashboardProjectsTable = ({ tableType, day }) => {
             />
           ))}
           {tableType === 'departments' && departmentsData.map((department, index) => (
-            <DepartmentTableRow key={index} {...department} 
+            <DepartmentTableRow
+              key={index}
+              {...department}
               onEdit={() => handleEdit(department.id)}
               onDelete={() => handleDelete(department.id)}
-              isEditing={editId === department.id}
-              onSave={handleSave}
-              onCancel={handleCancel} />
+            />
           ))}
           {tableType === 'contracts' && contractsData.map((contract, index) => (
-            <ContractTableRow key={index} {...contract}
+            <ContractTableRow
+              key={index}
+              {...contract}
               onEdit={() => handleEdit(contract.id)}
               onDelete={() => handleDelete(contract.id)}
-              isEditing={editId === contract.id}
-              onSave={handleSave}
-              onCancel={handleCancel} />
+            />
           ))}
         </tbody>
       </table>
+
+      {editId && editData && (tableType === 'departments' || tableType === 'contracts') && (
+        <DepartmentEditForm
+          initialValues={editData}
+          onSave={handleSave}
+          onCancel={handleCancel}
+        />
+      )}
     </div>
   );
 };
@@ -249,7 +261,6 @@ const DashboardProjectsTable = ({ tableType, day }) => {
 DashboardProjectsTable.propTypes = {
   tableType: PropTypes.string.isRequired,
   day: PropTypes.string,
-
 };
 
 export default DashboardProjectsTable;

@@ -61,7 +61,7 @@ const DepartmentTableRow = ({ id, name, employees, head, location, budget, onEdi
           budget
         )}
       </td>
-      <td className="border-b border-gray-600 p-3 space-x-2">
+      <td className="border-b  border-gray-600 p-3  space-y-2 space-x-1">
         {isEditing ? (
           <>
              <button onClick={onSave} className="bg-gradient-to-r to-[#d41459] from-[#911a6c] text-white px-2 py-1 rounded">Save</button>
@@ -69,7 +69,7 @@ const DepartmentTableRow = ({ id, name, employees, head, location, budget, onEdi
           </>
         ) : (
           <>
-             <button onClick={() => onEdit(id)} className="bg-blue-500 text-white px-2 py-1 rounded">Edit</button>
+             <button onClick={() => onEdit(id)} className="bg-blue-500 text-white  px-2 py-1 rounded ">Edit</button>
              <button onClick={() => onDelete(id)} className="bg-gradient-to-r to-[#d41459] from-[#911a6c] text-white px-2 py-1 rounded">Delete</button>
           </>
         )}
