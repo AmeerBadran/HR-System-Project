@@ -14,7 +14,7 @@ import LeaveRequestRow from '../molecule/LeaveRequestRow';
 import DepartmentTableRow from '../molecule/DepartmentTableRow';
 import ContractTableRow from '../molecule/ContractTableRow';
 import DepartmentEditForm from '../molecule/EditDepartmentForm';
-
+import ContractEditForm from '../molecule/EditContractForm'; 
 const projects = ['Project Name', 'Hours', 'Priority', 'Progress'];
 const invoices = ["Employee name", "Employee Address", "Per hour payment", "Condition", "Options"];
 const attendance = ['ID', 'Employee Name', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -246,14 +246,25 @@ const DashboardProjectsTable = ({ tableType, day }) => {
           ))}
         </tbody>
       </table>
+      {editId && editData && (
+  <>
+    {tableType === 'departments' && (
+      <DepartmentEditForm
+        initialValues={editData}
+        onSave={handleSave}
+        onCancel={handleCancel}
+      />
+    )}
+    {tableType === 'contracts' && (
+      <ContractEditForm
+        initialValues={editData}
+        onSave={handleSave}
+        onCancel={handleCancel}
+      />
+    )}
+  </>
+)}
 
-      {editId && editData && (tableType === 'departments' || tableType === 'contracts') && (
-        <DepartmentEditForm
-          initialValues={editData}
-          onSave={handleSave}
-          onCancel={handleCancel}
-        />
-      )}
     </div>
   );
 };
