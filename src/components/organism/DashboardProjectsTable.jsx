@@ -15,7 +15,7 @@ import LeaveRequestRow from '../molecule/LeaveRequestRow';
 import DepartmentTableRow from '../molecule/DepartmentTableRow';
 import ContractTableRow from '../molecule/ContractTableRow';
 import DepartmentEditForm from '../molecule/EditDepartmentForm';
-import ContractEditForm from '../molecule/EditContractForm'; 
+import ContractEditForm from '../molecule/EditContractForm';
 const projects = ['Project Name', 'Hours', 'Priority', 'Progress'];
 const invoices = ["Employee name", "Employee Address", "Per hour payment", "Condition", "Options"];
 const attendance = ['ID', 'Employee Name', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -27,11 +27,6 @@ const contracts = ['Employee Name', 'Contract Type', 'Position', 'Start Date', '
 
 //import { getLeaveRequsets } from '../../api/endpoints/leaveRequests';
 
-
-const projects = ['Project Name', 'Hours', 'Priority', 'Progress']
-const invoices = ["Employee name ", "Invoice amount", "Invoice Date","Invoice Due","Description", "Status", " Options"]
-const attendance = ['id', 'Employee Name', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-const leaveRequests = ['No. Request', 'Emp Id', 'Emp Name', 'Type', 'Start Date', 'Expiry Date', 'Message', 'State', '']
 
 const fackData = [
   {
@@ -183,7 +178,7 @@ const DashboardProjectsTable = ({ tableType, day }) => {
       dispatch(deleteContract(id));
     }
   };
-  
+
   /*
     const getLeaveRequestsData = async () => {
       try {
@@ -244,7 +239,7 @@ const DashboardProjectsTable = ({ tableType, day }) => {
           {tableType === 'leaveRequests' && leaveRequestsData.map((leaveRequest, index) => (
             <LeaveRequestRow key={index} {...leaveRequest} />
           ))}
-          {(tableType === 'attendance in' || tableType === 'attendance out') && fakeData.map((empData, index) => (
+          {(tableType === 'attendance in' || tableType === 'attendance out') && fackData.map((empData, index) => (
             <AttendanceInRow
               key={index}
               employeeId={empData.id}
@@ -273,23 +268,23 @@ const DashboardProjectsTable = ({ tableType, day }) => {
         </tbody>
       </table>
       {editId && editData && (
-  <>
-    {tableType === 'departments' && (
-      <DepartmentEditForm
-        initialValues={editData}
-        onSave={handleSave}
-        onCancel={handleCancel}
-      />
-    )}
-    {tableType === 'contracts' && (
-      <ContractEditForm
-        initialValues={editData}
-        onSave={handleSave}
-        onCancel={handleCancel}
-      />
-    )}
-  </>
-)}
+        <>
+          {tableType === 'departments' && (
+            <DepartmentEditForm
+              initialValues={editData}
+              onSave={handleSave}
+              onCancel={handleCancel}
+            />
+          )}
+          {tableType === 'contracts' && (
+            <ContractEditForm
+              initialValues={editData}
+              onSave={handleSave}
+              onCancel={handleCancel}
+            />
+          )}
+        </>
+      )}
 
     </div>
   );
