@@ -1,0 +1,444 @@
+[33mcommit 89222d7520c2c2ebcfc97afd4a5eb09ec712ad9e[m[33m ([m[1;36mHEAD -> [m[1;32mBayan-branch[m[33m)[m
+Merge: 0649a2c a542b88
+Author: bayanlulu <bayanazzam4@gmail.com>
+Date:   Tue Aug 27 21:39:10 2024 +0300
+
+    Resolved merge conflicts
+
+[33mcommit 0649a2c21bb401042d8eabd2b659f6615b6277f3[m[33m ([m[1;31morigin/Bayan-branch[m[33m)[m
+Author: bayanlulu <bayanazzam4@gmail.com>
+Date:   Tue Aug 27 20:42:46 2024 +0300
+
+    Deleted the Actions folder
+
+[33mcommit a542b885bb901f1f249d6e6ab1bd4832118d9d5d[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 2f5adcb 5dcd7a0
+Author: AmeerBadran <163484365+AmeerBadran@users.noreply.github.com>
+Date:   Wed Aug 21 18:01:44 2024 +0300
+
+    Merge pull request #17 from AmeerBadran/Ameer-second-branch
+    
+    Ameer second branch
+
+[33mcommit 5dcd7a0059477c42e1cb7afcbfcb26ef36398460[m[33m ([m[1;31morigin/Ameer-second-branch[m[33m)[m
+Merge: 052842b 8ca128e
+Author: AmeerBadran <163484365+AmeerBadran@users.noreply.github.com>
+Date:   Wed Aug 21 17:59:19 2024 +0300
+
+    Merge pull request #16 from AmeerBadran/Abd-pay-roll
+    
+    Abd pay roll
+
+[33mcommit 8ca128e870f6dae974a51752c4d29fd067d7cae4[m[33m ([m[1;31morigin/Abd-pay-roll[m[33m)[m
+Merge: 625b9b4 052842b
+Author: AmeerBadran <163484365+AmeerBadran@users.noreply.github.com>
+Date:   Wed Aug 21 17:59:09 2024 +0300
+
+    Merge branch 'Ameer-second-branch' into Abd-pay-roll
+
+[33mcommit 625b9b4ba9dfcffb3fcffad8b33c0ce245318c97[m
+Author: ameer <abadran281@gmail.com>
+Date:   Wed Aug 21 17:57:58 2024 +0300
+
+    last update
+
+[33mcommit e6404870f2de1537d7cbf4576d58b9f5f3f816e1[m
+Author: ameer <abadran281@gmail.com>
+Date:   Wed Aug 21 17:51:47 2024 +0300
+
+    last update
+
+[33mcommit e94632559b1aa11af87cfd62b03fde30cd1297db[m
+Author: abdqas510 <abdqasrawi510@gmail.com>
+Date:   Tue Aug 20 15:17:53 2024 +0300
+
+    adding new design in invoices bage 'more related'
+
+[33mcommit 2f5adcb5b0a778711adf311fa0cdc51a5d8ef323[m
+Merge: 2660e5b 052842b
+Author: AmeerBadran <163484365+AmeerBadran@users.noreply.github.com>
+Date:   Tue Aug 20 14:40:49 2024 +0300
+
+    Merge pull request #14 from AmeerBadran/Ameer-second-branch
+    
+    projects page with all details
+
+[33mcommit 052842bbe097eccc086b91511ed3c79e59c4e7cb[m
+Author: ameer <abadran281@gmail.com>
+Date:   Tue Aug 20 14:33:02 2024 +0300
+
+    projects page with all details
+
+[33mcommit 2660e5b85b01e31319d4e7c469136fba1fa02acd[m
+Merge: e261c57 3f48365
+Author: AmeerBadran <163484365+AmeerBadran@users.noreply.github.com>
+Date:   Fri Aug 16 18:50:20 2024 +0300
+
+    Merge pull request #13 from AmeerBadran/Ameer-first-branch
+    
+    Ameer first branch
+
+[33mcommit 3f4836546e4bb12892834de0b955925171b0b23a[m
+Author: AmeerBadran <163484365+AmeerBadran@users.noreply.github.com>
+Date:   Fri Aug 16 18:44:47 2024 +0300
+
+    Update LogIn.jsx
+
+[33mcommit 0f781cb074eb6e2fbf94b102476a492c7ee80a9a[m
+Author: ameer <abadran281@gmail.com>
+Date:   Fri Aug 16 18:34:29 2024 +0300
+
+    created standerd file to use an api and some update in other pages and add login page
+
+[33mcommit a1ded1221f31eb8714bf964a5a059a68aa084731[m
+Author: bayanlulu <bayanazzam4@gmail.com>
+Date:   Tue Aug 13 13:08:07 2024 +0300
+
+    Update Contracts component to display contract data using DashboardProjectsTable
+
+[33mcommit d84c1d17ca1e845dd236b7b7a718dbfc8f110609[m
+Author: bayanlulu <bayanazzam4@gmail.com>
+Date:   Tue Aug 13 13:01:54 2024 +0300
+
+    Add contracts slice for managing contract data
+
+[33mcommit b035d09731adc6e6ae33660ef3205d58e04f21e6[m
+Author: bayanlulu <bayanazzam4@gmail.com>
+Date:   Tue Aug 13 13:00:20 2024 +0300
+
+    Add DepartmentsNavbar component with form modal for adding new departments
+
+[33mcommit 1d5f105c6f818818fa0e8cb1b1abbcb99dda6d3a[m
+Author: bayanlulu <bayanazzam4@gmail.com>
+Date:   Tue Aug 13 12:59:32 2024 +0300
+
+    Add DashboardProjectsTable component with dynamic row rendering and editing
+
+[33mcommit 6e52e7b2f8244a0fc857d985f5a1bdd734e61359[m
+Author: bayanlulu <bayanazzam4@gmail.com>
+Date:   Tue Aug 13 12:58:44 2024 +0300
+
+    Add ContractsNavbar component with modal and form functionality
+
+[33mcommit 78d36db5e9182e833082ebf8b1305ed542625b9b[m
+Author: bayanlulu <bayanazzam4@gmail.com>
+Date:   Tue Aug 13 12:57:45 2024 +0300
+
+    Add PagesTitle component with dynamic navbar rendering
+
+[33mcommit 397768e78ab329b660c8154db38adfb36a7caafa[m
+Author: bayanlulu <bayanazzam4@gmail.com>
+Date:   Tue Aug 13 12:56:09 2024 +0300
+
+    Set up Redux store with departments and contracts reducers
+
+[33mcommit f22ffb652dea6d2cef08587aaed1738076c6e248[m
+Author: bayanlulu <bayanazzam4@gmail.com>
+Date:   Tue Aug 13 12:47:46 2024 +0300
+
+    Add DepartmentTableRow component with editing functionality
+
+[33mcommit d1525b7e3637e8c2a49e9836bf77726cf0df4ba4[m
+Author: bayanlulu <bayanazzam4@gmail.com>
+Date:   Tue Aug 13 12:45:35 2024 +0300
+
+    Add ContractTableRow component with editing functionality
+
+[33mcommit 26a1b72f8dd1e78b1cd69131049581256ad254f9[m[33m ([m[1;32mmain[m[33m)[m
+Author: bayanlulu <bayanazzam4@gmail.com>
+Date:   Sun Aug 11 22:30:09 2024 +0300
+
+    Added new DepartmentTableRow component and integrated form submission
+
+[33mcommit bb5dc1df6695bc1da7c2217de6ddaa263d0669b3[m
+Author: abdqas510 <abdqasrawi510@gmail.com>
+Date:   Sun Aug 11 14:04:15 2024 +0300
+
+    added a new feature on Cards Payroll [collecting PayrollCards}
+
+[33mcommit 042724f68dfd0ec781721598453cf89272065fd4[m
+Author: abdqas510 <abdqasrawi510@gmail.com>
+Date:   Sat Aug 10 12:37:37 2024 +0300
+
+    added a card design
+
+[33mcommit e261c5797b810144e07d1742293b29d090c1ac77[m
+Merge: a4d9cda f3bc564
+Author: AmeerBadran <163484365+AmeerBadran@users.noreply.github.com>
+Date:   Thu Aug 8 19:06:29 2024 +0300
+
+    Merge pull request #11 from AmeerBadran/Ameer-first-branch
+    
+    Ameer first branch
+
+[33mcommit f3bc5643fbd9f4f20cda2c0be9e2d9fdaadaa339[m[33m ([m[1;31morigin/Ameer-first-branch[m[33m)[m
+Author: ameer <abadran281@gmail.com>
+Date:   Thu Aug 8 19:05:05 2024 +0300
+
+    create file leaveRequestsData
+
+[33mcommit 9061e5d5b5d50d75c2be48f8dd7406d349816695[m
+Author: ameer <abadran281@gmail.com>
+Date:   Thu Aug 8 19:04:35 2024 +0300
+
+    create component PopupModal
+
+[33mcommit 3111a230eae4fb34ac90d10f019653cdf4fd5aa1[m
+Author: ameer <abadran281@gmail.com>
+Date:   Thu Aug 8 19:04:01 2024 +0300
+
+    create file LeaveRequestRow
+
+[33mcommit 8fff5d31872d4179b0ae7d45a1e012b49dd71a31[m
+Author: ameer <abadran281@gmail.com>
+Date:   Thu Aug 8 19:03:31 2024 +0300
+
+    add Leave Request Table to dashboard
+
+[33mcommit d860ee40c7cb10386b1eb6dc189dcd7668251e81[m
+Author: ameer <abadran281@gmail.com>
+Date:   Thu Aug 8 19:02:59 2024 +0300
+
+    add props to Searchbar component
+
+[33mcommit 5b5b593fda74f4613a161cf6cfcfa4fa4f9d3df4[m
+Author: ameer <abadran281@gmail.com>
+Date:   Thu Aug 8 19:02:17 2024 +0300
+
+    edit on DashboardProjectTable add new table 'leave Requests Table'
+
+[33mcommit 54c7da6fdd5aec952d4ec930e8e8bf8002a83d23[m
+Author: ameer <abadran281@gmail.com>
+Date:   Thu Aug 8 19:01:03 2024 +0300
+
+    edit on searchbar.jsx to accept props to put data i want
+
+[33mcommit f4763f10754875fd51a5079be5342330c6a65694[m
+Author: ameer <abadran281@gmail.com>
+Date:   Mon Aug 5 11:59:41 2024 +0300
+
+    File arrangement by ameer
+
+[33mcommit a4d9cdaa5fa9d945726e886121350db63653751f[m
+Merge: b084798 d5019f3
+Author: AmeerBadran <163484365+AmeerBadran@users.noreply.github.com>
+Date:   Sun Aug 4 17:46:26 2024 +0300
+
+    Merge pull request #10 from AmeerBadran/Ameer-first-branch
+    
+    Ameer first branch
+
+[33mcommit d5019f3e5cd9a0a858a3fb90cbc17e8dd35daa5c[m
+Merge: 2fd805f 60c61e3
+Author: AmeerBadran <163484365+AmeerBadran@users.noreply.github.com>
+Date:   Sun Aug 4 17:42:24 2024 +0300
+
+    Merge pull request #9 from AmeerBadran/Abd-Tamimi-branch
+    
+    Abd tamimi branch to Ameer first branch
+
+[33mcommit 60c61e336be91d8c3ed5b0e851451cfbc56b49ff[m[33m ([m[1;31morigin/Abd-Tamimi-branch[m[33m)[m
+Merge: d0bc50e 2fd805f
+Author: AmeerBadran <163484365+AmeerBadran@users.noreply.github.com>
+Date:   Sun Aug 4 17:41:44 2024 +0300
+
+    Merge branch 'Ameer-first-branch' into Abd-Tamimi-branch
+
+[33mcommit d0bc50e94bc0a0094dadc742a0bd4268e804e784[m
+Author: ameer <abadran281@gmail.com>
+Date:   Sun Aug 4 17:35:34 2024 +0300
+
+    File arrangement by ameer
+
+[33mcommit 2fd805ff429333ff2ea3767e99e823d321781f00[m
+Author: ameer <abadran281@gmail.com>
+Date:   Sun Aug 4 16:20:11 2024 +0300
+
+    last
+
+[33mcommit 7ae40c7733c680836d0d5a020e1ba280b140ea72[m
+Author: ameer <abadran281@gmail.com>
+Date:   Sun Aug 4 16:11:53 2024 +0300
+
+    create addendance row file
+
+[33mcommit e3f8253e029dff6fb0f66ef00beafe2a6a7f36f6[m
+Author: ameer <abadran281@gmail.com>
+Date:   Sun Aug 4 16:11:09 2024 +0300
+
+    add new icon for project
+
+[33mcommit 1678b6f30c1dc6825c03435b44399722d0160d4b[m
+Author: ameer <abadran281@gmail.com>
+Date:   Sun Aug 4 16:10:27 2024 +0300
+
+    add props for project table
+
+[33mcommit 1d77d4012416983cc3674a1992ac8ffa939a7107[m
+Author: ameer <abadran281@gmail.com>
+Date:   Sun Aug 4 16:09:47 2024 +0300
+
+    add attendance table in attendance page
+
+[33mcommit f5bf7d7d0c12aea2ba4efc41cb80f7d4e7badd61[m
+Author: ameer <abadran281@gmail.com>
+Date:   Sun Aug 4 16:08:53 2024 +0300
+
+    deleted leave requests data from sidebarItem
+
+[33mcommit 774af680eab1f7605710c3184ea195cf9b75b5d6[m
+Author: ameer <abadran281@gmail.com>
+Date:   Sun Aug 4 16:07:07 2024 +0300
+
+    make table reseive table type to change table titles
+
+[33mcommit fe3516041a2691ec9d94173a7ec40381bdadd7df[m
+Author: ameer <abadran281@gmail.com>
+Date:   Sun Aug 4 16:05:55 2024 +0300
+
+    delete icon from poblic
+
+[33mcommit 0356b0de95931a841eb938620ea432d77e9fb772[m
+Author: ameer <abadran281@gmail.com>
+Date:   Sun Aug 4 16:04:26 2024 +0300
+
+    added library to project
+
+[33mcommit cd0c90e9a851384350a8d1f2a231f6209b9dc169[m
+Author: ameer <abadran281@gmail.com>
+Date:   Sun Aug 4 16:03:18 2024 +0300
+
+    change project icon in index.html
+
+[33mcommit b1399e71d3b8a25c908499b074db1d919a8f947d[m
+Author: abdqas510 <abdqasrawi510@gmail.com>
+Date:   Sun Aug 4 14:46:24 2024 +0300
+
+    adding new features in invoice table (searchbar, conditions)
+
+[33mcommit 6bbd8117fcf5fe3302a1281813e2d4c1d978884e[m
+Author: abdqas510 <abdqasrawi510@gmail.com>
+Date:   Sun Aug 4 12:21:31 2024 +0300
+
+    adding a new design in invoice List option
+
+[33mcommit b644ccd2b6921d0170d54bcf75ba70b88f8b43bd[m
+Merge: a9f2521 b084798
+Author: abdqas510 <abdqasrawi510@gmail.com>
+Date:   Thu Aug 1 00:34:01 2024 +0300
+
+    Merge remote-tracking branch 'origin/main' into Abd-Tamimi-branch
+
+[33mcommit a9f25217517bf43e3f5b8134b4e1b9b9052e7773[m
+Author: abdqas510 <abdqasrawi510@gmail.com>
+Date:   Wed Jul 31 23:02:10 2024 +0300
+
+     changes on navbar buttons
+
+[33mcommit f4cc747e1a20bc39c2b3a28eb1199f7c126fd08d[m
+Author: abdqas510 <abdqasrawi510@gmail.com>
+Date:   Wed Jul 31 22:39:22 2024 +0300
+
+    link the navbar choices in invoices to diff pages
+
+[33mcommit af1c2c7d1a28c2dad976789e1b819c925e7dc06c[m
+Author: ameer <abadran281@gmail.com>
+Date:   Wed Jul 31 17:10:21 2024 +0300
+
+    creat some components in the dashboard :cards,chart,table3
+
+[33mcommit b084798fafbe138781a94e2231efaf9bf7e03581[m
+Merge: 3501f00 fc7e89c
+Author: AmeerBadran <163484365+AmeerBadran@users.noreply.github.com>
+Date:   Tue Jul 30 19:09:40 2024 +0300
+
+    Merge pull request #4 from AmeerBadran/Ameer-first-branch
+    
+    Ameer first branch
+
+[33mcommit fc7e89c2fb0253acc50a559abf8840ca7f3d9b96[m
+Author: ameer <abadran281@gmail.com>
+Date:   Tue Jul 30 19:01:26 2024 +0300
+
+    creat some components in the dashboard :cards,chart,table2
+
+[33mcommit acc6e729ca2c0055bac34bf46e4d49171575e83d[m
+Author: ameer <abadran281@gmail.com>
+Date:   Tue Jul 30 17:53:21 2024 +0300
+
+    creat some components in the dashboard :cards,chart,table
+
+[33mcommit 2a92abeb611a3e245635009062c3ee12e9831bba[m
+Author: abdqas510 <abdqasrawi510@gmail.com>
+Date:   Tue Jul 30 13:12:07 2024 +0300
+
+    add a new Navbar layout in Invoices
+
+[33mcommit 5519c02836c91ddc73dc2118f9b876724c21bee0[m
+Author: abdqas510 <abdqasrawi510@gmail.com>
+Date:   Tue Jul 30 00:45:45 2024 +0300
+
+    create a basic Navbar in Invoices Page
+
+[33mcommit 3501f00544b63dc858ae6be332151b5ebf679c75[m
+Merge: 1155119 82e7d7d
+Author: AmeerBadran <163484365+AmeerBadran@users.noreply.github.com>
+Date:   Mon Jul 29 22:20:00 2024 +0300
+
+    Merge pull request #3 from AmeerBadran/Ameer-first-branch
+    
+    navbar and sidebar done finaly
+
+[33mcommit 82e7d7de055a57c4a6682b0f36ac3b966ab1cca0[m
+Author: ameer <abadran281@gmail.com>
+Date:   Mon Jul 29 22:18:38 2024 +0300
+
+    navbar and sidebar done finaly
+
+[33mcommit 1155119bf3d135421b72c47db13aa0a80b60925f[m
+Merge: c732577 c1b7372
+Author: AmeerBadran <163484365+AmeerBadran@users.noreply.github.com>
+Date:   Mon Jul 29 20:45:54 2024 +0300
+
+    Merge pull request #2 from AmeerBadran/Ameer-first-branch
+    
+    Ameer first branch
+
+[33mcommit c1b7372739fab23d0327d11b8b6f696f5417f8ef[m
+Author: ameer <abadran281@gmail.com>
+Date:   Mon Jul 29 20:41:49 2024 +0300
+
+    navbar and sidebar done with 2 errors one more try will be done without errors
+
+[33mcommit fd7d297625593ad9dbfb77b7726637c8ff12f921[m
+Author: ameer <abadran281@gmail.com>
+Date:   Mon Jul 29 00:31:04 2024 +0300
+
+    navbar and sidebar done but stillneed some updates
+
+[33mcommit 2480ff812c54a4138e5dc4d91aaf934d1aae2ec0[m
+Author: ameer <abadran281@gmail.com>
+Date:   Sat Jul 27 22:48:59 2024 +0300
+
+    test branch 2
+
+[33mcommit c732577385c91bfae08b28c7943fc2c038dbce34[m
+Merge: 1e11c41 f5f729a
+Author: AmeerBadran <163484365+AmeerBadran@users.noreply.github.com>
+Date:   Sat Jul 27 22:47:27 2024 +0300
+
+    Merge pull request #1 from AmeerBadran/Ameer-first-branch
+    
+    test branch
+
+[33mcommit f5f729a753708af7c55ec00359e09c55d8335aa7[m
+Author: ameer <abadran281@gmail.com>
+Date:   Sat Jul 27 22:45:52 2024 +0300
+
+    test branch
+
+[33mcommit 1e11c41c07a9bb205ce085c93684b540b74625ae[m
+Author: ameer <abadran281@gmail.com>
+Date:   Sat Jul 27 21:50:57 2024 +0300
+
+    first commit
