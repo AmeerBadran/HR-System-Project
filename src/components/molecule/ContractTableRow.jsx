@@ -111,7 +111,7 @@ ContractTableRow.propTypes = {
   onDelete: PropTypes.func.isRequired,
   isEditing: PropTypes.bool.isRequired,
   onSave: PropTypes.func.isRequired,
-  onCancel: PropTypes.func.isRequired,
+  onCancel: PropTypes.func,
 };
 
 export default ContractTableRow;
