@@ -82,7 +82,7 @@ const ContractTableRow = ({
           salary
         )}
       </td>
-      <td className="border-b border-gray-600 p-3  space-x-3">
+      <td className="border-b border-gray-600 p-3  space-x-1 space-y-1">
         {isEditing ? (
           <>
             <button onClick={onSave} className="bg-gradient-to-r to-[#d41459] from-[#911a6c] text-white px-2 py-1 rounded">Save</button>
