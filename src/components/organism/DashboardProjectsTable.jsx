@@ -1,3 +1,4 @@
+//import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { deleteDepartment, updateDepartment } from '../../features/departments/departmentsSlice';
@@ -22,7 +23,17 @@ const leaveRequests = ['No Request', 'Emp ID', 'Emp Name', 'Type', 'Start Date',
 const departments = ['Department Name', 'Number of Employees', 'Head of Department', 'Location', 'Budget', 'Actions'];
 const contracts = ['Employee Name', 'Contract Type', 'Position', 'Start Date', 'End Date', 'Salary', 'Actions'];
 
-const fakeData = [
+//endpoints
+
+//import { getLeaveRequsets } from '../../api/endpoints/leaveRequests';
+
+
+const projects = ['Project Name', 'Hours', 'Priority', 'Progress']
+const invoices = ["Employee name ", "Invoice amount", "Invoice Date","Invoice Due","Description", "Status", " Options"]
+const attendance = ['id', 'Employee Name', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+const leaveRequests = ['No. Request', 'Emp Id', 'Emp Name', 'Type', 'Start Date', 'Expiry Date', 'Message', 'State', '']
+
+const fackData = [
   {
     id: '011',
     name: 'Ameer',
@@ -172,6 +183,21 @@ const DashboardProjectsTable = ({ tableType, day }) => {
       dispatch(deleteContract(id));
     }
   };
+  
+  /*
+    const getLeaveRequestsData = async () => {
+      try {
+        const response = await getLeaveRequsets()
+        return response
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  
+    useEffect(() => {
+      getLeaveRequestsData
+    }, [])
+  */
 
   let column;
   if (tableType === 'projects') {
