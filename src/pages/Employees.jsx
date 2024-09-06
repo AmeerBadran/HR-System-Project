@@ -37,6 +37,5 @@ function Employees() {
   );
 }
 
-const WrappedFooter = RootLayout(Employees);
 
-export default WrappedFooter;
+export default Employees;

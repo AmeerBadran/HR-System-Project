@@ -25,5 +25,5 @@ IconButton.propTypes = {
   icon: PropTypes.elementType,
   label: PropTypes.string.isRequired,
   styles: PropTypes.string,
-  onClickFunc: PropTypes.func.isRequired,
+  onClickFunc: PropTypes.func,
 };
