@@ -89,7 +89,11 @@ const router = createBrowserRouter([
       Not Found
     </div>
   }
-]);
+],
+  {
+    basename: "/hr-system",
+  }
+);
 
 export default function AppRouter() {
   return <RouterProvider router={router} />;

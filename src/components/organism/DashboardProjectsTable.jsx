@@ -5,10 +5,11 @@ import { deleteDepartment, updateDepartment } from '../../features/departments/d
 import { deleteContract, updateContract } from '../../features/contracts/contractsSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { projectData } from "../../constants/dashboardProjectTableData";
+
 import { invoiceListData } from "../../constants/invoicesListData";
-import { leaveRequestsData } from '../../constants/leaveRequestsData';
+import {projectData} from "../../constants/dashboardProjectTableData"
 import DashboardProjectTableRow from "../molecule/DashboardProjectTableRow";
+import {leaveRequestsData} from "../../constants/leaveRequestsData"
 import AttendanceInRow from '../molecule/AttendanceInRow';
 import InvoiceListTableRow from '../molecule/InvoicesListTableRow';
 import LeaveRequestRow from '../molecule/LeaveRequestRow';
@@ -25,7 +26,8 @@ const contracts = ['Employee Name', 'Contract Type', 'Position', 'Start Date', '
 
 //endpoints
 
-//import { getLeaveRequsets } from '../../api/endpoints/leaveRequests';
+// import { getLeaveRequests, getProject } from '../../api/endpoints/leaveRequests';
+// import { toast } from 'react-toastify';
 
 
 const fackData = [
@@ -139,9 +141,30 @@ const DashboardProjectsTable = ({ tableType, day }) => {
   const dispatch = useDispatch();
   const departmentsData = useSelector((state) => state.departments);
   const contractsData = useSelector((state) => state.contracts);
-
+  //const [allTablesData, setAllTablesData] = useState([])
   const [editId, setEditId] = useState(null);
   const [editData, setEditData] = useState(null);
+
+  // useEffect(() => {
+  //   const getDataForTable = () => {
+  //     console.log('object')
+  //     try {
+  //       let response;
+  //       if (tableType === 'leaveRequests') {
+  //         console.log('object')
+  //         response = getLeaveRequests()
+  //       } else if (tableType === 'projects') {
+  //         response = getProject()
+  //       } else {
+  //         return
+  //       }
+  //       setAllTablesData(response.data)
+  //     } catch (error) {
+  //       toast.error(error)
+  //     }
+  //   }
+  //   getDataForTable()
+  // }, [tableType])
 
   const handleEdit = (id) => {
     console.log(`Editing ${tableType} with id: ${id}`);
@@ -179,20 +202,6 @@ const DashboardProjectsTable = ({ tableType, day }) => {
     }
   };
 
-  /*
-    const getLeaveRequestsData = async () => {
-      try {
-        const response = await getLeaveRequsets()
-        return response
-      } catch (error) {
-        console.log(error)
-      }
-    }
-  
-    useEffect(() => {
-      getLeaveRequestsData
-    }, [])
-  */
 
   let column;
   if (tableType === 'projects') {
