@@ -91,7 +91,7 @@ const router = createBrowserRouter([
   }
 ],
   {
-    basename: "/hr-system",
+    basename: "/HR-System-Project",
   }
 );
 
