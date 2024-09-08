@@ -1,5 +1,9 @@
 import axiosInstance from "../axios";
 
-export const getLeaveRequsets = () => {
-  axiosInstance.get('/endpoint')
+export const getLeaveRequests = () => {
+  axiosInstance.get('/LeaveRequestApi/GetLeaveRequests')
+}
+
+export const getProject = () => {
+  axiosInstance.get('/ProjectApi/GetProject')
 }
