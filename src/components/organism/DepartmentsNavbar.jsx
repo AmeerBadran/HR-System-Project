@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import { addDepartment } from '/src/features/departments/departmentsSlice';
+import { addDep } from '../../api/endpoints/departments';
 
 const validationSchema = Yup.object({
   name: Yup.string().required('Department Name is required'),
@@ -47,7 +48,7 @@ export default function DepartmentsNavbar({ pageTitle }) {
                 head: '',
                 location: '',
                 budget: '',
-              }}
+              }} 
               validationSchema={validationSchema}
               onSubmit={(values, { resetForm }) => {
                 const newDepartment = {
@@ -56,6 +57,7 @@ export default function DepartmentsNavbar({ pageTitle }) {
                 };
 
                 dispatch(addDepartment(newDepartment));
+                addDep(values);
 
                 console.log('Form data submitted:', values);
                 resetForm();

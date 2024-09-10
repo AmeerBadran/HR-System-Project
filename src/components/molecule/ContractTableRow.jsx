@@ -1,18 +1,17 @@
-import PropTypes from 'prop-types';
-
+/* eslint-disable react/prop-types */
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  
+  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+};
 const ContractTableRow = ({ 
-  id, 
-  employeeName, 
+  name, 
   startDate, 
   endDate, 
   position, 
   salary, 
   contractType, 
-  onEdit, 
-  onDelete, 
   isEditing, 
-  onSave, 
-  onCancel 
 }) => {
   return (
     <tr>
@@ -20,11 +19,11 @@ const ContractTableRow = ({
         {isEditing ? (
           <input
             type="text"
-            defaultValue={employeeName}
+            defaultValue={name}
             className="bg-white text-black"
           />
         ) : (
-          employeeName
+          name
         )}
       </td>
       <td className="border-b border-gray-600 p-3">
@@ -53,22 +52,22 @@ const ContractTableRow = ({
         {isEditing ? (
           <input
             type="date"
-            defaultValue={startDate}
+            defaultValue={ formatDate(startDate)}
             className="bg-white text-black"
           />
         ) : (
-          startDate
+          formatDate(startDate)
         )}
       </td>
       <td className="border-b border-gray-600 p-3">
         {isEditing ? (
           <input
             type="date"
-            defaultValue={endDate}
+            defaultValue={formatDate(endDate)}
             className="bg-white text-black"
           />
         ) : (
-          endDate
+          formatDate(endDate)
         )}
       </td>
       <td className="border-b border-gray-600 p-3">
@@ -82,36 +81,12 @@ const ContractTableRow = ({
           salary
         )}
       </td>
-      <td className="border-b border-gray-600 p-3  space-x-1 space-y-1">
-        {isEditing ? (
-          <>
-            <button onClick={onSave} className="bg-gradient-to-r to-[#d41459] from-[#911a6c] text-white px-2 py-1 rounded">Save</button>
-            <button onClick={onCancel} className="bg-gray-300 hover:bg-gray-400 text-gray-800 px-2 py-1 rounded">Cancel</button>
-          </>
-        ) : (
-          <>
-            <button onClick={() => onEdit(id)} className="bg-blue-500 text-white px-2 py-1 rounded">Edit</button>
-            <button onClick={() => onDelete(id)} className="bg-gradient-to-r to-[#d41459] from-[#911a6c] text-white px-2 py-1 rounded">Delete</button>
-          </>
-        )}
-      </td>
+      
     </tr>
   );
 };
 
-ContractTableRow.propTypes = {
-  id: PropTypes.string.isRequired,
-  employeeName: PropTypes.string.isRequired,
-  startDate: PropTypes.string.isRequired,
-  endDate: PropTypes.string.isRequired,
-  position: PropTypes.string.isRequired,
-  salary: PropTypes.number.isRequired,
-  contractType: PropTypes.string.isRequired, 
-  onEdit: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired,
-  isEditing: PropTypes.bool.isRequired,
-  onSave: PropTypes.func.isRequired,
-  onCancel: PropTypes.func,
-};
+
+
 
 export default ContractTableRow;

@@ -3,12 +3,12 @@ import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 
 const validationSchema = Yup.object({
-  name: Yup.string().required('Department Name is required'),
-  employees: Yup.number()
+  departmentName: Yup.string().required('Department Name is required'),
+  numberOfEmployees: Yup.number()
     .required('Number of Employees is required')
     .positive('Must be a positive number')
     .integer('Must be an integer'),
-  head: Yup.string().required('Head of Department is required'),
+    departmentHead: Yup.string().required('Head of Department is required'),
   location: Yup.string().required('Location is required'),
   budget: Yup.string().required('Budget is required'),
 });
@@ -19,7 +19,14 @@ const DepartmentEditForm = ({ initialValues, onSave, onCancel }) => {
       <div className="bg-[#191c24] rounded-lg p-8 w-1/3">
         <h2 className="text-lg font-semibold mb-4 text-white">Edit Department</h2>
         <Formik
-          initialValues={initialValues}
+        initialValues={{
+          name: initialValues.departmentName,
+          employees: initialValues.numberOfEmployees,
+          head: initialValues.departmentHead,
+          location: initialValues.location,
+          budget: initialValues.budget,
+        }} 
+          //initialValues={initialValues}
           validationSchema={validationSchema}
           onSubmit={(values) => {
             onSave(values);
@@ -102,6 +109,7 @@ const DepartmentEditForm = ({ initialValues, onSave, onCancel }) => {
                 </button>
                 <button
                   type="submit"
+                  onClick={onSave}
                   className="bg-gradient-to-r to-[#d41459] from-[#911a6c] hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
                 >
                   Save

@@ -4,9 +4,9 @@ import { useState } from 'react';
 import PagesTitle from "../components/molecule/PagesTitle";
 import AddProjectForm from "../components/organism/AddProjectForm";
 import EmployeeCard from "../components/molecule/ProjectsEmployeeCard";
-import { IoIosMore } from "react-icons/io";
-import { FaClock, FaEdit, FaTrash } from "react-icons/fa";
-import { ProgressBar } from 'react-bootstrap';
+//import { IoIosMore } from "react-icons/io";
+//import { FaClock, FaEdit, FaTrash } from "react-icons/fa";
+//import { ProgressBar } from 'react-bootstrap';
 import { projectsData } from "../constants/projectsData";
 
 function Projects() {

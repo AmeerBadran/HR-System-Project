@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import { addContract } from '/src/features/contracts/contractsSlice'; 
+import { addCon } from '../../api/endpoints/contracts';
 
 const validationSchema = Yup.object({
   employeeName: Yup.string().required('Employee Name is required'),
@@ -58,6 +59,14 @@ export default function ContractsNavbar({ pageTitle }) {
                 };
 
                 dispatch(addContract(newContract));
+                try{
+                  addCon(values);
+
+                }
+                catch(error)
+                {
+                  console.error(error)
+                }
 
                 console.log('Form data submitted:', values);
                 resetForm();

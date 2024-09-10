@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { deleteDepartment, updateDepartment } from '../../features/departments/departmentsSlice';
+//import {  updateDepartment } from '../../features/departments/departmentsSlice';
 import { deleteContract, updateContract } from '../../features/contracts/contractsSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -18,6 +18,8 @@ import ContractEditForm from '../molecule/EditContractForm';
 
 import { toast } from 'react-toastify';
 import { getInvoices } from '../../api/endpoints/invoices';
+import { deleteDep, editDep, getDep } from '../../api/endpoints/departments';
+import { getCon } from '../../api/endpoints/contracts';
 
 
 const projects = ['Project Name', 'Hours', 'Priority', 'Progress'];
@@ -25,7 +27,7 @@ const invoices = ["Invoice Name", "Amount", "Invoice Date", "Invoice Due", "Invo
 const attendance = ['ID', 'Employee Name', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const leaveRequests = ['No Request', 'Emp ID', 'Emp Name', 'Type', 'Start Date', 'Expiry Date', 'Message', 'State', ''];
 const departments = ['Department Name', 'Number of Employees', 'Head of Department', 'Location', 'Budget', 'Actions'];
-const contracts = ['Employee Name', 'Contract Type', 'Position', 'Start Date', 'End Date', 'Salary', 'Actions'];
+const contracts = ['Employee Name', 'Contract Type', 'Position', 'Start Date', 'End Date', 'Salary'];
 
 const fackData = [
   {
@@ -97,11 +99,15 @@ const fackData = [
 
 const DashboardProjectsTable = ({ tableType, day }) => {
   const dispatch = useDispatch();
-  const departmentsData = useSelector((state) => state.departments);
+ // const departmentsData = useSelector((state) => state.departments);
   const contractsData = useSelector((state) => state.contracts);
   const [invoicesData, setinvoicesData] = useState([]);
   const [editId, setEditId] = useState(null);
   const [editData, setEditData] = useState(null);
+  const [departmentsData2, setDepartmentsData2] = useState([]);
+  const [contractsData2, setContractsData2] = useState([]);
+
+
 
   useEffect(() => {
     const getDataForTable = async () => {
@@ -111,6 +117,19 @@ const DashboardProjectsTable = ({ tableType, day }) => {
           if (response && response.data) {
             setinvoicesData(response.data);
           }
+        } else if (tableType === 'departments')
+          {const response = await getDep();  
+          if (response && response.data) {
+            setDepartmentsData2(response.data);
+          }
+
+        }else if (tableType === 'contracts')
+        {
+        const response = await getCon();  
+          if (response && response.data) {
+            setContractsData2(response.data);
+          }
+
         }
       } catch (error) {
         toast.error(error.message || 'An error occurred while fetching data');
@@ -122,7 +141,8 @@ const DashboardProjectsTable = ({ tableType, day }) => {
 
   const handleEdit = (id) => {
     if (tableType === 'departments') {
-      const department = departmentsData.find((dep) => dep.id === id);
+      const department = departmentsData2.find((dep) => dep.iD === id);
+      console.log(department);
       setEditData(department);
     } else if (tableType === 'contracts') {
       const contract = contractsData.find((con) => con.id === id);
@@ -133,11 +153,12 @@ const DashboardProjectsTable = ({ tableType, day }) => {
 
   const handleSave = (updatedData) => {
     if (tableType === 'departments') {
-      dispatch(updateDepartment({ id: editId, ...updatedData }));
+      console.log("text"+ updatedData)
+      editDep(updatedData) ;
     } else if (tableType === 'contracts') {
       dispatch(updateContract({ id: editId, ...updatedData }));
     }
-    setEditId(null);
+   setEditId(null);
     setEditData(null);
   };
 
@@ -148,7 +169,7 @@ const DashboardProjectsTable = ({ tableType, day }) => {
 
   const handleDelete = (id) => {
     if (tableType === 'departments') {
-      dispatch(deleteDepartment(id));
+      deleteDep(id);
     } else if (tableType === 'contracts') {
       dispatch(deleteContract(id));
     }
@@ -209,15 +230,15 @@ const DashboardProjectsTable = ({ tableType, day }) => {
               checkInOut={tableType}
             />
           ))}
-          {tableType === 'departments' && departmentsData.map((department, index) => (
+          {tableType === 'departments' && departmentsData2.map((department, index) => (
             <DepartmentTableRow
               key={index}
               {...department}
-              onEdit={() => handleEdit(department.id)}
-              onDelete={() => handleDelete(department.id)}
+              onEdit={() => handleEdit(department.iD)}
+              onDelete={() => handleDelete(department.iD)}
             />
           ))}
-          {tableType === 'contracts' && contractsData.map((contract, index) => (
+          {tableType === 'contracts' && contractsData2.map((contract, index) => (
             <ContractTableRow
               key={index}
               {...contract}

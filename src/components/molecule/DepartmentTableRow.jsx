@@ -1,8 +1,8 @@
+/* eslint-disable react/prop-types */
 
-import PropTypes from 'prop-types';
 
 
-const DepartmentTableRow = ({ id, name, employees, head, location, budget, onEdit, onDelete, isEditing, onSave, onCancel }) => {
+const DepartmentTableRow = ({ iD, departmentName, numberOfEmployees, departmentHead, location, budget, onEdit, onDelete, isEditing, onSave, onCancel }) => {
  
   return (
     <tr>
@@ -10,33 +10,33 @@ const DepartmentTableRow = ({ id, name, employees, head, location, budget, onEdi
         {isEditing ? (
           <input
             type="text"
-            defaultValue={name}
+            defaultValue={departmentName}
             className="bg-white text-black"
           />
         ) : (
-          name
+          departmentName
         )}
       </td>
       <td className="border-b border-gray-600 p-3">
         {isEditing ? (
           <input
             type="number"
-            defaultValue={employees}
+            defaultValue={numberOfEmployees}
             className="bg-white text-black"
           />
         ) : (
-          employees
+          numberOfEmployees
         )}
       </td>
       <td className="border-b border-gray-600 p-3">
         {isEditing ? (
           <input
             type="text"
-            defaultValue={head}
+            defaultValue={departmentHead}
             className="bg-white text-black"
           />
         ) : (
-          head
+          departmentHead
         )}
       </td>
       <td className="border-b border-gray-600 p-3">
@@ -69,26 +69,15 @@ const DepartmentTableRow = ({ id, name, employees, head, location, budget, onEdi
           </>
         ) : (
           <>
-             <button onClick={() => onEdit(id)} className="bg-blue-500 text-white  px-2 py-1 rounded ">Edit</button>
-             <button onClick={() => onDelete(id)} className="bg-gradient-to-r to-[#d41459] from-[#911a6c] text-white px-2 py-1 rounded">Delete</button>
+             <button onClick={() => onEdit(iD)} className="bg-blue-500 text-white  px-2 py-1 rounded ">Edit</button>
+             <button onClick={() => onDelete(iD)} className="bg-gradient-to-r to-[#d41459] from-[#911a6c] text-white px-2 py-1 rounded">Delete</button>
           </>
         )}
       </td>
     </tr>
   );
 };
-DepartmentTableRow.propTypes = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  employees: PropTypes.number.isRequired,
-  head: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
-  budget: PropTypes.number.isRequired,
-  onEdit: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired,
-  isEditing: PropTypes.bool.isRequired,
-  onSave: PropTypes.func.isRequired,
-  onCancel: PropTypes.func.isRequired,
-};
+
+
 
 export default DepartmentTableRow;
