@@ -1,15 +1,13 @@
-//import { useEffect } from 'react';
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { deleteDepartment, updateDepartment } from '../../features/departments/departmentsSlice';
 import { deleteContract, updateContract } from '../../features/contracts/contractsSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
-
-import { invoiceListData } from "../../constants/invoicesListData";
-import {projectData} from "../../constants/dashboardProjectTableData"
+import { projectData } from "../../constants/dashboardProjectTableData"
 import DashboardProjectTableRow from "../molecule/DashboardProjectTableRow";
-import {leaveRequestsData} from "../../constants/leaveRequestsData"
+import { leaveRequestsData } from "../../constants/leaveRequestsData"
 import AttendanceInRow from '../molecule/AttendanceInRow';
 import InvoiceListTableRow from '../molecule/InvoicesListTableRow';
 import LeaveRequestRow from '../molecule/LeaveRequestRow';
@@ -17,18 +15,17 @@ import DepartmentTableRow from '../molecule/DepartmentTableRow';
 import ContractTableRow from '../molecule/ContractTableRow';
 import DepartmentEditForm from '../molecule/EditDepartmentForm';
 import ContractEditForm from '../molecule/EditContractForm';
+
+import { toast } from 'react-toastify';
+import { getInvoices } from '../../api/endpoints/invoices';
+
+
 const projects = ['Project Name', 'Hours', 'Priority', 'Progress'];
-const invoices = ["Employee name", "Employee Address", "Per hour payment", "Condition", "Options"];
+const invoices = ["Invoice Name", "Amount", "Invoice Date", "Invoice Due", "Invoice Description","Status","Actions"];
 const attendance = ['ID', 'Employee Name', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const leaveRequests = ['No Request', 'Emp ID', 'Emp Name', 'Type', 'Start Date', 'Expiry Date', 'Message', 'State', ''];
 const departments = ['Department Name', 'Number of Employees', 'Head of Department', 'Location', 'Budget', 'Actions'];
 const contracts = ['Employee Name', 'Contract Type', 'Position', 'Start Date', 'End Date', 'Salary', 'Actions'];
-
-//endpoints
-
-// import { getLeaveRequests, getProject } from '../../api/endpoints/leaveRequests';
-// import { toast } from 'react-toastify';
-
 
 const fackData = [
   {
@@ -95,84 +92,40 @@ const fackData = [
       Friday: { checkIn: '08:30', checkOut: '17:30' },
       Saturday: { checkIn: '', checkOut: '' }
     }
-  },
-  {
-    id: '011',
-    name: 'Ameer',
-    attendance: {
-      Sunday: { checkIn: '08:30', checkOut: '17:30' },
-      Monday: { checkIn: '', checkOut: '' },
-      Tuesday: { checkIn: '08:30', checkOut: '17:30' },
-      Wednesday: { checkIn: '', checkOut: '' },
-      Thursday: { checkIn: '08:30', checkOut: '17:30' },
-      Friday: { checkIn: '', checkOut: '' },
-      Saturday: { checkIn: '08:30', checkOut: '17:30' }
-    }
-  },
-  {
-    id: '012',
-    name: 'Mohanad',
-    attendance: {
-      Sunday: { checkIn: '', checkOut: '' },
-      Monday: { checkIn: '08:30', checkOut: '17:30' },
-      Tuesday: { checkIn: '', checkOut: '' },
-      Wednesday: { checkIn: '08:30', checkOut: '17:30' },
-      Thursday: { checkIn: '', checkOut: '' },
-      Friday: { checkIn: '08:30', checkOut: '17:30' },
-      Saturday: { checkIn: '', checkOut: '' }
-    }
-  },
-  {
-    id: '013',
-    name: 'Mohmoud',
-    attendance: {
-      Sunday: { checkIn: '08:30', checkOut: '17:30' },
-      Monday: { checkIn: '08:30', checkOut: '17:30' },
-      Tuesday: { checkIn: '', checkOut: '' },
-      Wednesday: { checkIn: '08:30', checkOut: '17:30' },
-      Thursday: { checkIn: '', checkOut: '' },
-      Friday: { checkIn: '', checkOut: '' },
-      Saturday: { checkIn: '08:30', checkOut: '17:30' }
-    }
-  },
+  }
 ];
 
 const DashboardProjectsTable = ({ tableType, day }) => {
   const dispatch = useDispatch();
   const departmentsData = useSelector((state) => state.departments);
   const contractsData = useSelector((state) => state.contracts);
-  //const [allTablesData, setAllTablesData] = useState([])
+  const [invoicesData, setinvoicesData] = useState([]);
   const [editId, setEditId] = useState(null);
   const [editData, setEditData] = useState(null);
 
-  // useEffect(() => {
-  //   const getDataForTable = () => {
-  //     console.log('object')
-  //     try {
-  //       let response;
-  //       if (tableType === 'leaveRequests') {
-  //         console.log('object')
-  //         response = getLeaveRequests()
-  //       } else if (tableType === 'projects') {
-  //         response = getProject()
-  //       } else {
-  //         return
-  //       }
-  //       setAllTablesData(response.data)
-  //     } catch (error) {
-  //       toast.error(error)
-  //     }
-  //   }
-  //   getDataForTable()
-  // }, [tableType])
+  useEffect(() => {
+    const getDataForTable = async () => {
+      try {
+        if (tableType === 'invoices') {
+          const response = await getInvoices();
+          if (response && response.data) {
+            setinvoicesData(response.data);
+          }
+        }
+      } catch (error) {
+        toast.error(error.message || 'An error occurred while fetching data');
+      }
+    };
+
+    getDataForTable();
+  }, [tableType]);
 
   const handleEdit = (id) => {
-    console.log(`Editing ${tableType} with id: ${id}`);
     if (tableType === 'departments') {
-      const department = departmentsData.find(dep => dep.id === id);
+      const department = departmentsData.find((dep) => dep.id === id);
       setEditData(department);
     } else if (tableType === 'contracts') {
-      const contract = contractsData.find(con => con.id === id);
+      const contract = contractsData.find((con) => con.id === id);
       setEditData(contract);
     }
     setEditId(id);
@@ -194,14 +147,12 @@ const DashboardProjectsTable = ({ tableType, day }) => {
   };
 
   const handleDelete = (id) => {
-    console.log(`Deleting ${tableType} with id: ${id}`);
     if (tableType === 'departments') {
       dispatch(deleteDepartment(id));
     } else if (tableType === 'contracts') {
       dispatch(deleteContract(id));
     }
   };
-
 
   let column;
   if (tableType === 'projects') {
@@ -232,7 +183,7 @@ const DashboardProjectsTable = ({ tableType, day }) => {
         <thead>
           <tr>
             {column.map((header, index) => (
-              <th key={index} className="border-b border-gray-600  p-3 text-[#637381] text-left">
+              <th key={index} className="border-b border-gray-600 p-3 text-[#637381] text-left">
                 {header}
               </th>
             ))}
@@ -242,7 +193,7 @@ const DashboardProjectsTable = ({ tableType, day }) => {
           {tableType === 'projects' && projectData.map((project, index) => (
             <DashboardProjectTableRow key={index} {...project} />
           ))}
-          {tableType === 'invoices' && invoiceListData.map((invoice, index) => (
+          {tableType === 'invoices' && invoicesData.map((invoice, index) => (
             <InvoiceListTableRow key={index} {...invoice} />
           ))}
           {tableType === 'leaveRequests' && leaveRequestsData.map((leaveRequest, index) => (
@@ -294,7 +245,6 @@ const DashboardProjectsTable = ({ tableType, day }) => {
           )}
         </>
       )}
-
     </div>
   );
 };

@@ -1,8 +1,8 @@
 import axios from "axios";
-const baseURL = import.meta.env.VITE_HR_SYSTEM_BASE_URL;
+// const baseURL = import.meta.env.VITE_HR_SYSTEM_BASE_URL;
 
 const axiosInstance = axios.create({
-  baseURL: baseURL,
+  baseURL: "http://hrsystem.somee.com/api",
 });
 
 axiosInstance.interceptors.request.use(
