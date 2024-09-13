@@ -56,7 +56,7 @@ PayrollCard.propTypes = {
   name: PropTypes.string,
   Salary: PropTypes.number,
   Adress: PropTypes.string,
-  Avatar: PropTypes.img,
+  Avatar: PropTypes.string,
   Position: PropTypes.string,
   Date: PropTypes.string,
 

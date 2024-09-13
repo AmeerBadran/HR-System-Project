@@ -1,4 +1,4 @@
-import { PropTypes } from "prop-types";
+/* eslint-disable react/prop-types */
 // Components imports
 import IconButton from "../molecule/IconButton";
 import JobTitle from "../atoms/JobTitle";
@@ -20,7 +20,9 @@ export default function EmployeeCard({
   stars,
   followers,
   job_title,
-  employee_description,
+  address,
+  email,
+  phone,
   job_title_bg_color,
 }) {
   return (
@@ -69,8 +71,8 @@ export default function EmployeeCard({
           </div>
         </div>
 
-        <div className="max-h-20 overflow-y-auto leading-tight whitespace-pre-wrap">
-          <EmployeeDescription description={employee_description} />
+        <div className="max-h-20 overflow-y-auto -mt-3 leading-tight whitespace-pre-wrap">
+          <EmployeeDescription address={address} email={email} phone={phone} />
         </div>
 
         <div className="w-full mobile:mx-auto flex mobile:flex-col md:flex-row justify-start md:items-center gap-2 ">
@@ -92,13 +94,3 @@ export default function EmployeeCard({
   );
 }
 
-EmployeeCard.propTypes = {
-  employee_pfp: PropTypes.string.isRequired,
-  employee_name: PropTypes.string.isRequired,
-  tasks: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  stars: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  followers: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  job_title: PropTypes.string.isRequired,
-  employee_description: PropTypes.string.isRequired,
-  job_title_bg_color: PropTypes.string.isRequired,
-};

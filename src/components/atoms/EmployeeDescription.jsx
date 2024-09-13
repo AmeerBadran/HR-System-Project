@@ -1,15 +1,12 @@
-import { PropTypes } from "prop-types";
+/* eslint-disable react/prop-types */
 
-export default function EmployeeDescription({description, styles}) {
+export default function EmployeeDescription({ address, styles, email, phone }) {
   const defaultStyle = "text-white";
   return (
-    <span className={`${defaultStyle} ${styles}`}>
-      {description}
-    </span>
+    <div className={`${defaultStyle} ${styles}`}>
+      address: {address}
+      <br></br>Email: {email}
+      <br></br>Phone: {phone}
+    </div>
   )
-}
-
-EmployeeDescription.propTypes = {
-  description: PropTypes.string,
-  styles: PropTypes.string,
 }
