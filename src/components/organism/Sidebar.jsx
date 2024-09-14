@@ -2,8 +2,19 @@ import PropTypes from 'prop-types';
 import profileImage from "../../assets/images/vaiolet.png";
 import SidebarLink from '../atoms/SidebarLink'
 import sidebarItems from '../../constants/sidebarItems';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import user from '../../assets/images/user.png'
 export default function Sidebar({ sidebarSize, isHalfScreen, setSidebarSize }) {
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    const storedUserData = localStorage.getItem('userData');
+
+    if (storedUserData) {
+      setUserData(JSON.parse(storedUserData));
+    }
+  }, []);
+
   const changeSize = true;
   useEffect(() => {
     if (changeSize === isHalfScreen) {
@@ -19,10 +30,10 @@ export default function Sidebar({ sidebarSize, isHalfScreen, setSidebarSize }) {
       }
       <div className={`flex flex-col overflow-y-auto overflow-x-hidden ${isHalfScreen && 'mt-[70px]'}`}>
         <div className={`py-1 mb-0 mt-[18px] ${sidebarSize === 'big' ? 'mx-4 gap-3 pr-[2px] flex items-center' : sidebarSize === 'small' ? 'mx-auto' : ''}`}>
-          <img src={profileImage} alt="profileImage" className="w-[35px] h-[35px] rounded-full shadow-md shadow-gray-950 object-cover mx-2" />
+          <img src={userData?.name ? profileImage : user} alt="profileImage" className="w-[35px] h-[35px] rounded-full shadow-md shadow-gray-950 object-cover mx-2" />
           <div className="w-full">
-            {sidebarSize === 'big' && (<><p className="text-md text-white">Ameer Badran</p>
-              <p className="text-xs text-gray-500">Gold Member</p></>)}
+            {sidebarSize === 'big' && (<><p className="text-md text-white">{userData?.name && userData.name}</p>
+              <p className="text-xs text-gray-500">{userData?.specialty && userData.specialty}</p></>)}
           </div>
         </div>
         {sidebarSize === 'big' && <h1 className="ml-6 my-5 w-full text-lg font-semibold text-gray-300">Navigation</h1>}

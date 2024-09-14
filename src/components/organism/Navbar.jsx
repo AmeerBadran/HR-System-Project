@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { TfiMenu } from "react-icons/tfi";
 import { MdEmail } from "react-icons/md";
@@ -11,14 +12,25 @@ import { Link } from "react-router-dom";
 import { images, messages, notifications } from '../../constants/navbarData';
 import MessageItem from '../atoms/MessageItem';
 import NotificationItem from '../atoms/NotificationItem';
-
-
-const login = false;
-
+import user from '../../assets/images/user.png'
 
 export default function Navbar({ sidebarSize, setSidebarSize, isSmallScreen, isHalfScreen }) {
+  const [userData, setUserData] = useState(null);
   const changeSize = () => {
     setSidebarSize(sidebarSize === 'big' ? 'small' : 'big');
+  };
+
+  useEffect(() => {
+    const storedUserData = localStorage.getItem('userData');
+
+    if (storedUserData) {
+      setUserData(JSON.parse(storedUserData));
+    }
+  }, []);
+
+  const logout = () => {
+    localStorage.removeItem('userData');
+    setUserData(null);
   };
 
   return (
@@ -109,8 +121,8 @@ export default function Navbar({ sidebarSize, setSidebarSize, isSmallScreen, isH
             <div>
               <MenuButton>
                 <div className="pr-[2px] pt-[2px] min-w-44 w-44 my-2 flex items-center ">
-                  <img src={images.profileImage} alt="profileImage" className="w-9 h-9 rounded-full shadow-md shadow-gray-950 object-cover ml-1" />
-                  <p className="text-sm text-white ml-3 font-medium">Ameer Badran</p>
+                  <img src={userData?.name ? images.profileImage : user} alt="profileImage" className="w-9 h-9 rounded-full shadow-md shadow-gray-950 object-cover ml-1" />
+                  <p className="text-sm text-white ml-3 font-medium">{userData?.name && userData.name}</p>
                   <IoMdArrowDropdown className="text-gray-400 text-lg w-6" />
                 </div>
               </MenuButton>
@@ -195,7 +207,7 @@ export default function Navbar({ sidebarSize, setSidebarSize, isSmallScreen, isH
                     </MenuItem>
                   </>
                 )}
-                {login ? (
+                {userData ? (
                   <>
                     <MenuItem>
                       <Link to="/profile" className="flex items-center px-3 py-2 text-sm text-white data-[focus]:bg-[#13151B] border-b border-gray-700">
@@ -206,7 +218,7 @@ export default function Navbar({ sidebarSize, setSidebarSize, isSmallScreen, isH
                       </Link>
                     </MenuItem>
                     <MenuItem>
-                      <button to="/" className="flex items-center px-4 py-3 text-sm text-white data-[focus]:bg-[#13151B] rounded-b-md">
+                      <button onClick={logout} className="flex items-center px-4 py-3 text-sm text-white data-[focus]:bg-[#13151B] rounded-b-md">
                         <div className="pr-[6px] pl-[10px] py-2 bg-[#0d0d0d] rounded-full mr-3">
                           <TbLogout className="text-red-700 text-xl" />
                         </div>
